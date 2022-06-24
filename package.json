@@ -1,0 +1,27 @@
+{
+  "name": "portfolio_1",
+  "version": "1.0.0",
+  "homepage": "https://halquist.github.io",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halquist/halquist.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/halquist/halquist.github.io/issues"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "gh-pages": "^4.0.0",
+    "save-dev": "^0.0.1-security"
+  }
+}
