@@ -1,0 +1,86 @@
+body,html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+* {
+  box-sizing: border-box;
+}
+.containerDiv {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFormDiv {
+  margin-top: 20%;
+  min-height: 100px;
+  max-width: 500px;
+  background-color: rgb(112, 122, 139);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgb(30, 32, 34);
+  border-radius: 20px;
+
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  min-width: 300px;
+  font-weight: bold;
+  margin-bottom: 50px;
+
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  margin: 10px;
+  min-width: 50%;
+}
+
+ul {
+  text-align: center;
+  padding-left: 0px;
+
+}
+
+li {
+  list-style: none;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  transition: .2s;
+}
+
+button:hover{
+  background-color: rgb(208, 208, 208)
+}
+
+button:active{
+  transform: scale(.9);
+}

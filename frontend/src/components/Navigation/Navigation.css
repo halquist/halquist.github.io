@@ -1,0 +1,75 @@
+.navBar {
+  width: 100%;
+  background-color: rgb(58, 79, 97);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navContent {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+
+.navContainer {
+  width: 100%;
+}
+
+.loginLinks {
+  display: flex;
+}
+
+
+.loginText, .homeText {
+margin: 0px 10px;
+background-color: rgb(0, 46, 75);
+padding: 10px 20px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: bold;
+color: white;
+}
+
+.profile-dropdown {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  right: 0px;
+  top: 60px;
+  padding: 10px 20px;
+}
+
+.profile-dropdown > li {
+  margin-top: 10px;
+}
+
+#logoutButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: .2s;
+}
+
+
+
+#logoutButton:hover{
+  background-color: rgb(208, 208, 208)
+}
+
+#logoutButton:active{
+  transform: scale(.9);
+}
+
+#profileButton {
+  padding: 0px 40px;
+  margin: 0px 10px;
+}
