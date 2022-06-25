@@ -4,16 +4,19 @@ import IconArr from './IconArr';
 
 
 const SlotSpinner = () => {
-  const [displayIconOne, setDisplayIconOne] = useState("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg");
-  const [displayIconTwo, setDisplayIconTwo] = useState("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg");
-  const [displayIconThree, setDisplayIconThree] = useState("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg");
+  const [displayIconOne, setDisplayIconOne] = useState(IconArr[Math.floor(Math.random() * 15)]);
+  const [displayIconTwo, setDisplayIconTwo] = useState(IconArr[Math.floor(Math.random() * 15)]);
+  const [displayIconThree, setDisplayIconThree] = useState(IconArr[Math.floor(Math.random() * 15)]);
+  const [rerunAnim, setRerunAnim] = useState(false);
   const [iconElementOne, setIconElementOne] = useState(<img id='spinnerIconOne' src={displayIconOne} width='64px'/>);
   const [iconElementTwo, setIconElementTwo] = useState(<img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>);
   const [iconElementThree, setIconElementThree] = useState(<img id='spinnerIconThree' src={displayIconThree} width='64px'/>);
   const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
+    setRerunAnim(true);
     let spinnerTimeout
+    let spinnerTimeout2
     let counter = 0;
     spinnerTimeout = setInterval(()=> {
       setDisplayIconOne(IconArr[Math.floor(Math.random() * 15)])
@@ -22,24 +25,11 @@ const SlotSpinner = () => {
       counter++;
       if (counter === 5) {
         clearInterval(spinnerTimeout);
-        // setDisplayIcon(number);
-        // setTrigger(prev => !prev);
-      }
-    }, 500);
-  },[])
-
-  useEffect(() => {
-    let spinnerTimeout
-    let counter = 0;
-    spinnerTimeout = setInterval(()=> {
-      setDisplayIconOne(IconArr[Math.floor(Math.random() * 15)])
-      setDisplayIconTwo(IconArr[Math.floor(Math.random() * 15)])
-      setDisplayIconThree(IconArr[Math.floor(Math.random() * 15)])
-      counter++;
-      if (counter === 5) {
-        clearInterval(spinnerTimeout);
-        // setDisplayIcon(number);
-        // setTrigger(prev => !prev);
+        spinnerTimeout2 = setTimeout(() => {
+          setRerunAnim(false);
+          setTrigger(prev => !prev);
+          clearTimeout(spinnerTimeout2)
+        }, 2000)
       }
     }, 500);
   },[trigger])
@@ -54,7 +44,12 @@ const SlotSpinner = () => {
         <div className='bpmValueDisplaySpinner'>
         <div className='spinnerHighlight'></div>
           <div id='el1'>
-            <img id='spinnerIconOne' src={displayIconOne} width='64px'/>
+            {rerunAnim &&
+              <img id='spinnerIconOne' src={displayIconOne} width='64px'/>
+            }
+            {!rerunAnim &&
+              <img src={displayIconOne} width='64px'/>
+            }
           </div>
         </div>
       </div>
@@ -62,8 +57,15 @@ const SlotSpinner = () => {
         {/* <BpmCoin classPass={classPass}/> */}
         <div className='bpmValueDisplaySpinner'>
         <div className='spinnerHighlight'></div>
+        <div className='spinnerHighlight2'></div>
+        <div className='spinnerHighlight3'></div>
           <div id='el2'>
-            <img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>
+            {rerunAnim &&
+              <img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>
+            }
+            {!rerunAnim &&
+              <img src={displayIconTwo} width='64px'/>
+            }
           </div>
         </div>
       </div>
@@ -72,7 +74,12 @@ const SlotSpinner = () => {
         <div className='bpmValueDisplaySpinner'>
         <div className='spinnerHighlight'></div>
           <div id='el3'>
-            <img id='spinnerIconThree' src={displayIconThree} width='64px'/>
+            {rerunAnim &&
+              <img id='spinnerIconThree' src={displayIconThree} width='64px'/>
+            }
+            {!rerunAnim &&
+              <img src={displayIconThree} width='64px'/>
+            }
           </div>
         </div>
       </div>
