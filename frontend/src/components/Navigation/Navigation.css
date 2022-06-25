@@ -1,20 +1,21 @@
 .navBar {
   width: 100%;
-  background-color: rgb(58, 79, 97);
+  background-color: #42484D;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  height: 60px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 3px solid #181B1E;
 }
 
 .navContent {
   display: flex;
   max-width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0px 20px;
 }
 
@@ -72,4 +73,79 @@ color: white;
 #profileButton {
   padding: 0px 40px;
   margin: 0px 10px;
+}
+
+#logoNameDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* #jonName,
+#halquistName,
+#iName,
+#tName {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 200 300;
+  transition: .5s ease-in-out;
+  pointer-events: none;
+  animation: letter_pulse 4.5s linear;
+} */
+
+#jonName {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 300 900;
+  pointer-events: none;
+  animation: letter_pulse 2.5s ease-in-out;
+}
+
+#halquistName {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 540 900;
+  pointer-events: none;
+  animation: letter_pulse_2 5s ease-in-out;
+}
+
+#iName {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 540 900;
+  pointer-events: none;
+  animation: letter_pulse_2 5.3s ease-in-out;
+}
+
+#tName {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 540 900;
+  pointer-events: none;
+  animation: letter_pulse_2 6s ease-in-out;
+}
+
+
+
+@keyframes letter_pulse {
+  0% {
+    stroke-dashoffset: 350;
+    stroke-dasharray: 300 900;
+    stroke-width: 3px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 300 900;
+    stroke-width: 3px;
+  }
+}
+
+@keyframes letter_pulse_2 {
+  0% {
+    /* opacity: 1; */
+    stroke-dashoffset: -1080;
+    stroke-dasharray: 540 1080;
+    stroke-width: 3px;
+  }
+  100% {
+    /* opacity: 1; */
+    stroke-dashoffset: 0;
+    stroke-dasharray: 540 1080;
+    stroke-width: 3px;
+  }
 }

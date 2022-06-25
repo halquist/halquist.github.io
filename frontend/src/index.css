@@ -1,11 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rye&display=swap');
+
 html {
-  background-color: rgb(45, 52, 59);
+  background-color: #2C3238;
   font-family: 'Montserrat', sans-serif;
   padding: 100px 0 0;
-
+  background-image: url("./images/background_trees.svg");
+  /* background-position: right; */
+  background-size: auto;
+  background-repeat: repeat;
 }
+/*
+#trees {
+  animation: fade_in 2s ease-in-out;
+  background-color: red;
+  width: 500px;
+} */
 
 .root {
   margin: 0;
   padding: 100px 0 0;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
 }
