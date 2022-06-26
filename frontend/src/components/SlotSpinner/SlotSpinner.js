@@ -13,17 +13,30 @@ const SlotSpinner = () => {
   const [iconElementThree, setIconElementThree] = useState(<img id='spinnerIconThree' src={displayIconThree} width='64px'/>);
   const [trigger, setTrigger] = useState(false);
 
+  const winFunc = () => {
+    console.log('win')
+    
+  }
+
   useEffect(() => {
     setRerunAnim(true);
     let spinnerTimeout
     let spinnerTimeout2
     let counter = 0;
     spinnerTimeout = setInterval(()=> {
-      setDisplayIconOne(IconArr[Math.floor(Math.random() * 15)])
-      setDisplayIconTwo(IconArr[Math.floor(Math.random() * 15)])
-      setDisplayIconThree(IconArr[Math.floor(Math.random() * 15)])
+      setDisplayIconOne(IconArr[Math.floor(Math.random() * 15)]);
+      setDisplayIconTwo(IconArr[Math.floor(Math.random() * 15)]);
+      setDisplayIconThree(IconArr[Math.floor(Math.random() * 15)]);
       counter++;
-      if (counter === 5) {
+      if (counter === 6) {
+        const bigWin = Math.floor(Math.random() * 6);
+        if (bigWin === 3) {
+          setDisplayIconOne(displayIconOne);
+          setDisplayIconTwo(displayIconOne);
+          setDisplayIconThree(displayIconOne);
+          clearInterval(spinnerTimeout);
+          winFunc();
+        }
         clearInterval(spinnerTimeout);
         spinnerTimeout2 = setTimeout(() => {
           setRerunAnim(false);
@@ -57,8 +70,6 @@ const SlotSpinner = () => {
         {/* <BpmCoin classPass={classPass}/> */}
         <div className='bpmValueDisplaySpinner'>
         <div className='spinnerHighlight'></div>
-        <div className='spinnerHighlight2'></div>
-        <div className='spinnerHighlight3'></div>
           <div id='el2'>
             {rerunAnim &&
               <img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>

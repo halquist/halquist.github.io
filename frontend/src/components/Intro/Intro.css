@@ -57,6 +57,7 @@
   font-weight: 700;
   color: #E4AF23;
   font-size: 5em;
+  animation: blur_in 1s ease-in-out;
 }
 
 #subName {
@@ -65,6 +66,8 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   margin-top: 5px;
+  animation: blur_in 1s ease-in-out;
+
 }
 
 #subName2 {
@@ -73,6 +76,8 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   margin-top: 5px;
+  animation: blur_in 1s ease-in-out;
+
 }
 
 #meHeadshot {
@@ -86,5 +91,15 @@
   }
   .contentDiv2 {
     margin-top: 10px;
+  }
+}
+
+@keyframes blur_in {
+  0% {
+    /* opacity: 0; */
+    filter: blur(4px);
+  } 100% {
+    filter: blur(0px);
+    /* opacity: 1; */
   }
 }
