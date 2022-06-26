@@ -149,3 +149,43 @@ color: white;
     stroke-width: 3px;
   }
 }
+
+/* #centerPetal {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade 1s ease-in-out;
+}
+#petal1 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s ease-in-out alternate infinite;
+}
+#petal2 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s .1s ease-in-out alternate infinite;
+}
+#petal3 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s .2s ease-in-out alternate infinite;
+}
+#petal4 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s .3s ease-in-out alternate infinite;
+}
+#petal5 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s .4s ease-in-out alternate infinite;
+}
+#petal6 {
+  transform-origin: 50% 50% 0;
+  animation: petal_fade .5s .5s ease-in-out alternate infinite;
+}
+
+@keyframes petal_fade {
+  0% {
+    opacity: 0;
+    transform: scale(.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+} */

@@ -9,17 +9,21 @@ const Intro = () => {
     <div id='topContainer'>
       <div className='contentHero'>
         {/* <img id='meHeadshot' src={me_headshot} width='220px'/> */}
-        <div className='contentDiv'>
-          <div id='titleName'>JON HALQUIST</div>
-          <div id='subName'>Software Engineer & Design</div>
+        <div className='subContentDiv'>
+          <img id='meHeadshot' src={circuitHorse} width='190px'/>
+          <div className='contentDiv'>
+            <div id='titleName'>JON HALQUIST</div>
+            <div id='subName'>Software Engineer & Design</div>
+          </div>
         </div>
-        <img id='meHeadshot' src={circuitHorse} width='190px'/>
       </div>
-      <SlotSpinner />
       <div className='contentDiv2'>
         <div id='subName2'>The most wonderful feeling I have ever known is the prickly glow of anxious joy as one of my creations spreads its wings and takes flight into the world.</div>
       </div>
-      <img id='meHeadshot' src={skullPCB} width='600px'/>
+      <div id='slotContainer'>
+        <SlotSpinner />
+      </div>
+      {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
     </div>
   )
 };

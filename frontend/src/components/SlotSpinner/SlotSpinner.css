@@ -1,8 +1,45 @@
+#slotMachineContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 17px;
+  background-color: #42484D;
+  border: 1px solid rgba(0, 0, 0, .6);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, .9);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 50% , rgba(255, 255, 255, 0.1) 100%);
+  /* height: 250px; */
+  padding: 20px;
+  border-radius: 10px;
+}
+
 #fullSpinnerRow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+#slotBottom {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-align: center;
+  color: #E4AF23;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  background-color: #CE5438;
+  border-radius: 6px;
+  height: 100px;
+  width: 248px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, .9);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 50% , rgba(255, 255, 255, 0.2) 100%);
+  filter: drop-shadow(-1px  -1px rgba(0, 0, 0, 0.3));
+
 }
 
 .spinnerContainer {
@@ -13,7 +50,7 @@
 }
 
 .bpmValueDisplaySpinner {
-  /* position: fixed; */
+  position: relative;
   /* left: 54%; */
   /* right: 50%; */
   transform: translateX(-50%, -50%);
@@ -21,16 +58,18 @@
   justify-content: center;
   align-items: center;
   /* background-color: #42484D; */
-  background-color: #b5c7d6;
-  border: 1px solid rgba(0, 0, 0, .3);
-  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .4);
+  background-color: #E4AF23;
+  border: 1px solid rgba(0, 0, 0, .6);
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .5);
   border-radius: 8px;
   padding: 4px 5px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1) ,rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 50% , rgba(255, 255, 255, 0.2) 100%);
   /* clip-path: border-box; */
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   width: 80px;
   height: 100px;
+  filter: drop-shadow(-1px  -1px rgba(0, 0, 0, 0.3));
+
 }
 
 .spinnerHighlight {
@@ -40,22 +79,22 @@
   height: 30px;
   border-radius: 4px 4px 3px 3px;
   z-index: 1;
-  background-image: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.01));
+  background-image: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.03));
   /* background-image: linear-gradient( -165deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); */
 }
 
 #spinnerIconOne {
-  padding-bottom: 2px;
+  /* padding-bottom: 2px; */
   animation: spinner_start .5s  ease-in, spinner .5s .5s ease-in-out 5, spinner_end .5s 3s ease-out;
 }
 
 #spinnerIconTwo {
-  padding-bottom: 2px;
+  /* padding-bottom: 2px; */
   animation: spinner_start .5s ease-in, spinner .5s .5s ease-in-out 5, spinner_end .7s 3s ease-out;
 }
 
 #spinnerIconThree {
-  padding-bottom: 2px;
+  /* padding-bottom: 2px; */
   animation: spinner_start .5s ease-in, spinner .5s .5s ease-in-out 5, spinner_end .9s 3s ease-out;
 }
 
@@ -106,5 +145,107 @@
   }
   100% {
     transform: translate(0px, 0px);
+  }
+}
+
+
+.prizeIcon {
+  width: 60px;
+  position: absolute;
+  right: 314px;
+  top: -220px;
+  opacity: 0;
+  z-index: 20;
+}
+
+#prize1 {
+  offset-path: path('M250,250c0,0,45.916-172.989,104.017,0,c0,0,13.967,48.407,15.643,60.698c0,0,27.933-134.637,59.776,0c0,0,18.822-69.833,44.693,0');
+  animation: coin_1 1.3s ease-out 6;
+}
+#prize2 {
+  offset-path: path('M250,250c0,0-47.147-145.939-100.454,0,c0,0-11.732,35.558-11.732,60.698c0,0-33.519-127.375-64.804,0c0,0-20.112-72.626-35.196,0');
+  animation: coin_2 1.3s .1s ease-out 6;
+}
+#prize3 {
+  offset-path: path('M250,250c0,0-28.387-226.621-59.113,0c0,0-8.38,56.789-8.38,84.722,c0,0-34.079-210.614-65.363,0c0,0-18.995-124.021-40.783,0');
+  animation: coin_3 1.3s .2s ease-out 6;
+}
+#prize4 {
+  offset-path: path('M250,250c0,0,17.982-206.202,41.445-2.082,c0,0,8.938,58.314,8.938,86.804c0,0,27.933-224.021,51.396,0c0,0,21.229-135.752,53.072,0');
+  animation: coin_4 1.3s .3s ease-out 6;
+}
+#prize5 {
+  offset-path: path('M250,250c0,0-52.409-111.371-95.984,127.176,c0,0-26.816-180.446-60.894,0c0,0-17.877-108.938-41.899,0');
+  animation: coin_5 1.3s .4s ease-out  6;
+}
+#prize6 {
+  offset-path: path('M250,250c0,0,36.977-123.661,55.971,127.176,c0,0,34.078-182.681,59.218,0c0,0,25.699-96.647,54.19,0');
+  animation: coin_6 1.3s .5s ease-out 6;
+}
+
+@keyframes coin_1 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(180deg);
+    offset-distance: 100%;
+  }
+}
+@keyframes coin_2 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(80deg);
+    offset-distance: 100%;
+  }
+}
+@keyframes coin_3 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(-180deg);
+    offset-distance: 100%;
+  }
+}
+@keyframes coin_4 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(270deg);
+    offset-distance: 100%;
+  }
+}
+@keyframes coin_5 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(-80deg);
+    offset-distance: 100%;
+  }
+}
+@keyframes coin_6 {
+  0% {
+    opacity: 1;
+    transform: scale(.2) rotate(0deg);
+    offset-distance: 0%;
+  } 100% {
+    opacity: 0;
+    transform: scale(1.1) rotate(-300deg);
+    offset-distance: 100%;
   }
 }
