@@ -22,18 +22,26 @@ const SlotSpinner = () => {
   //   }, 5000)
   // }
 
+  // main slot animation 
   useEffect(() => {
     setRerunAnim(true);
     let spinnerTimeout
     let spinnerTimeout2
     let counter = 0;
     spinnerTimeout = setInterval(()=> {
-      setDisplayIconOne(IconArr[Math.floor(Math.random() * 15)]);
-      setDisplayIconTwo(IconArr[Math.floor(Math.random() * 15)]);
-      setDisplayIconThree(IconArr[Math.floor(Math.random() * 15)]);
+      let iconOne = IconArr[Math.floor(Math.random() * 15)];
+      let iconTwo = IconArr[Math.floor(Math.random() * 15)];
+      let iconThree = IconArr[Math.floor(Math.random() * 15)];
+      if (iconTwo === iconThree && iconThree === iconOne) {
+        console.log('intervene')
+        iconThree = IconArr[Math.floor(Math.random() * 15)];
+      }
+      setDisplayIconOne(iconOne);
+      setDisplayIconTwo(iconTwo);
+      setDisplayIconThree(iconThree);
       counter++;
       if (counter === 6) {
-        const bigWin = Math.floor(Math.random() * 2);
+        const bigWin = Math.floor(Math.random() * 3);
         if (bigWin === 1) {
           const winIcon = IconArr[Math.floor(Math.random() * 15)]
           setDisplayIconOne(winIcon);
@@ -72,12 +80,12 @@ const SlotSpinner = () => {
       <div id='fullSpinnerRow'>
         {prizeTrigger &&
           <>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize1'/>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize2'/>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize3'/>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize4'/>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize5'/>
-            <img src={displayIconOne} width="70" className='prizeIcon' id='prize6'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize1'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize2'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize3'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize4'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize5'/>
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize6'/>
           </>
         }
         <div className='spinnerContainer'>
@@ -86,10 +94,10 @@ const SlotSpinner = () => {
           <div className='spinnerHighlight'></div>
             <div id='el1'>
               {rerunAnim &&
-                <img id='spinnerIconOne' src={displayIconOne} width='64px'/>
+                <img id='spinnerIconOne' src={displayIconOne} width='80px'/>
               }
               {!rerunAnim &&
-                <img src={displayIconOne} width='64px'/>
+                <img src={displayIconOne} width='80px'/>
               }
             </div>
           </div>
@@ -100,10 +108,10 @@ const SlotSpinner = () => {
           <div className='spinnerHighlight'></div>
             <div id='el2'>
               {rerunAnim &&
-                <img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>
+                <img id='spinnerIconTwo' src={displayIconTwo} width='80px'/>
               }
               {!rerunAnim &&
-                <img src={displayIconTwo} width='64px'/>
+                <img src={displayIconTwo} width='80px'/>
               }
             </div>
           </div>
@@ -114,10 +122,10 @@ const SlotSpinner = () => {
           <div className='spinnerHighlight'></div>
             <div id='el3'>
               {rerunAnim &&
-                <img id='spinnerIconThree' src={displayIconThree} width='64px'/>
+                <img id='spinnerIconThree' src={displayIconThree} width='80px'/>
               }
               {!rerunAnim &&
-                <img src={displayIconThree} width='64px'/>
+                <img src={displayIconThree} width='80px'/>
               }
             </div>
           </div>

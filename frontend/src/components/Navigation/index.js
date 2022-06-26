@@ -30,9 +30,9 @@ function Navigation({ isLoaded }){
         <li className='navContent'>
           <div id='logoNameDiv'>
             <Logo />
-            <Name />
+            {/* <Name /> */}
           </div>
-          <NavLink exact to="/" className='homeText'>Home</NavLink>
+          {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
           {/* {isLoaded && sessionLinks} */}
         </li>
       </ul>
