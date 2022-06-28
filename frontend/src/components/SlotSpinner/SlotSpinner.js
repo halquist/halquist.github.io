@@ -1,59 +1,65 @@
 import './SlotSpinner.css';
 import { useEffect, useState } from 'react';
-import IconArr from './IconArr';
 
+// the prop winRate determines approximately how often the slot will hit a win
+// (3 matching symbols). A value of 1 will win on every spin, a value of 5 will
+// will win once every 5 spins
+const SlotSpinner = ({ winRate, IconArr}) => {
 
-const SlotSpinner = () => {
-  const [displayIconOne, setDisplayIconOne] = useState(IconArr[Math.floor(Math.random() * 15)]);
-  const [displayIconTwo, setDisplayIconTwo] = useState(IconArr[Math.floor(Math.random() * 15)]);
-  const [displayIconThree, setDisplayIconThree] = useState(IconArr[Math.floor(Math.random() * 15)]);
+  //function used to select randomly from icon array
+  const randomArrFunc = () => {
+    return IconArr[Math.floor(Math.random() * IconArr.length)];
+  };
+
+  const [displayIconOne, setDisplayIconOne] = useState(randomArrFunc());
+  const [displayIconTwo, setDisplayIconTwo] = useState(randomArrFunc());
+  const [displayIconThree, setDisplayIconThree] = useState(randomArrFunc());
   const [rerunAnim, setRerunAnim] = useState(false);
   const [prizeTrigger, setPrizeTrigger] = useState(false);
-  const [iconElementOne, setIconElementOne] = useState(<img id='spinnerIconOne' src={displayIconOne} width='64px'/>);
-  const [iconElementTwo, setIconElementTwo] = useState(<img id='spinnerIconTwo' src={displayIconTwo} width='64px'/>);
-  const [iconElementThree, setIconElementThree] = useState(<img id='spinnerIconThree' src={displayIconThree} width='64px'/>);
   const [trigger, setTrigger] = useState(false);
 
-  // const winFunc = () => {
-  //   console.log('win')
-  //   const winTimeout = setTimeout(() => {
-  //     setTrigger(prev => !prev);
-  //     setPrizeTrigger(false);
-  //   }, 5000)
-  // }
-
-  // main slot animation 
+  // main slot animation
   useEffect(() => {
+
+    // starts animation by rendering icon div
     setRerunAnim(true);
-    let spinnerTimeout
+    let spinnerInterval
     let spinnerTimeout2
+
+    // counter will determine how many times the icon will scroll by
+    // there will be 2 extra scrolls, the starting and ending animations
     let counter = 0;
-    spinnerTimeout = setInterval(()=> {
-      let iconOne = IconArr[Math.floor(Math.random() * 15)];
-      let iconTwo = IconArr[Math.floor(Math.random() * 15)];
-      let iconThree = IconArr[Math.floor(Math.random() * 15)];
+
+    // spinnerInterval runs once for every animation, currently set for half a second
+    // if you change this interval here you will also need to change the duration of
+    //css animation spinner_start, spinner, or spinner_end
+    // (which would all need to be the same length as eachother)
+
+    spinnerInterval = setInterval(()=> {
+      let iconOne = randomArrFunc();
+      let iconTwo = randomArrFunc();
+      let iconThree = randomArrFunc();
       if (iconTwo === iconThree && iconThree === iconOne) {
         console.log('intervene')
-        iconThree = IconArr[Math.floor(Math.random() * 15)];
+        iconThree = randomArrFunc();
       }
       setDisplayIconOne(iconOne);
       setDisplayIconTwo(iconTwo);
       setDisplayIconThree(iconThree);
       counter++;
       if (counter === 6) {
-        const bigWin = Math.floor(Math.random() * 3);
-        if (bigWin === 1) {
-          const winIcon = IconArr[Math.floor(Math.random() * 15)]
+        const bigWin = Math.floor(Math.random() * winRate);
+        if (bigWin === 0) {
+          const winIcon = randomArrFunc();
           setDisplayIconOne(winIcon);
           setDisplayIconTwo(winIcon);
           setDisplayIconThree(winIcon);
-          clearInterval(spinnerTimeout);
+          clearInterval(spinnerInterval);
           clearTimeout(spinnerTimeout2)
           const shortTimeout = setTimeout(() => {
             setPrizeTrigger(true);
             clearTimeout(shortTimeout);
           }, 500)
-          // winFunc();
           const winTimeout = setTimeout(() => {
             setPrizeTrigger(false);
             setRerunAnim(false);
@@ -62,7 +68,7 @@ const SlotSpinner = () => {
           }, 9000)
           return;
         }
-        clearInterval(spinnerTimeout);
+        clearInterval(spinnerInterval);
         spinnerTimeout2 = setTimeout(() => {
           setRerunAnim(false);
           setTrigger(prev => !prev);
@@ -71,9 +77,6 @@ const SlotSpinner = () => {
       }
     }, 500);
   },[trigger])
-
-  // setBpmValue(PrizeArr[Math.floor(Math.random() * 100)]);
-  // setSpinnerTrigger(true);
 
   return (
     <div id='slotMachineContainer'>
