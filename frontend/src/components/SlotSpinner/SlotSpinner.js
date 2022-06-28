@@ -18,13 +18,24 @@ const SlotSpinner = ({ winRate, IconArr}) => {
   const [prizeTrigger, setPrizeTrigger] = useState(false);
   const [trigger, setTrigger] = useState(false);
 
+  // variables for animation intervals and timeouts, need to be in function scope for
+  // access outside of where the timeouts are declared
+  let spinnerInterval;
+  let loseTimeout;
+  let winIconTimeout;
+  let shortTimeout;
+  let winTimeout;
+
   // main slot animation
   useEffect(() => {
+    // clearInterval(spinnerInterval);
+    // clearTimeout(loseTimeout);
+    // clearTimeout(winIconTimeout);
+    // clearTimeout(shortTimeout);
+    // clearTimeout(winTimeout);
 
     // starts animation by rendering icon div
     setRerunAnim(true);
-    let spinnerInterval
-    let loseTimeout
 
     // counter will determine how many times the icon will scroll by
     // there will be 2 extra scrolls, the starting and ending animations
@@ -70,15 +81,15 @@ const SlotSpinner = ({ winRate, IconArr}) => {
           setDisplayIconThree(winIcon);
           clearInterval(spinnerInterval);
           clearTimeout(loseTimeout);
-          const winIconTimeout = setTimeout(() => {
+          winIconTimeout = setTimeout(() => {
             setRerunAnim(false);
             clearTimeout(winIconTimeout);
           }, 700)
-          const shortTimeout = setTimeout(() => {
+          shortTimeout = setTimeout(() => {
             setPrizeTrigger(true);
             clearTimeout(shortTimeout);
           }, 500)
-          const winTimeout = setTimeout(() => {
+          winTimeout = setTimeout(() => {
             setPrizeTrigger(false);
             setTrigger(prev => !prev);
             clearTimeout(winTimeout);
