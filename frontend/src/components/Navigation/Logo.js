@@ -2,11 +2,8 @@ import './Navigation.css'
 
 const Logo = () => {
   return (
-  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-    width="80px" height="119px" viewBox="0 -32 200 200" enableBackground="new 0 0 200 200">
-    <polygon fill="#42484D" points="0.056,0 0.056,137.76 99.999,195.462 199.944,137.76 200,137.76 200,0 "/>
-    <polyline fill="none" stroke="#181B1E" strokeWidth="7.0866" strokeLinecap="round" strokeMiterlimit="10" points="0.056,137.76
-      99.999,195.462 199.944,137.76 200,137.76 "/>
+  <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="80px" height="120px" viewBox="0 -32 200 200" enableBackground="new 0 0 200 200">
     <g>
       <path id='petal1' fill="#E4AF23" d="M47.16,68.997c9.777,0.439,19.627,1.784,29.079,4.357c0.297-2.183,0.899-4.313,1.777-6.334
         c-6.551-2.357-12.786-5.641-18.518-9.583c-4.71-3.24-9.573-7.033-12.949-11.709c5.617,0.552,11.227,2.814,16.285,5.2

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import Logo from './Logo';
+import LogoCrest from './LogoCrest';
 import Name from './Name';
 
 function Navigation({ isLoaded }){
@@ -29,7 +29,7 @@ function Navigation({ isLoaded }){
       <ul className='navContainer'>
         <li className='navContent'>
           <div id='logoNameDiv'>
-            <Logo />
+            <LogoCrest />
             {/* <Name /> */}
           </div>
           {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
