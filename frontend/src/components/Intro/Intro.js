@@ -22,7 +22,7 @@ const Intro = () => {
         <div id='subName2'>The most wonderful feeling I have ever known is the prickly glow of anxious joy as one of my creations spreads its wings and takes flight into the world.</div>
       </div>
       <div id='slotContainer'>
-        <SlotSpinner winRate='1' IconArr={IconArr} />
+        <SlotSpinner winRate='5' IconArr={IconArr} />
       </div>
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
     </div>
