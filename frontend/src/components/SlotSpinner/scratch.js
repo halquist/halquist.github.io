@@ -56,19 +56,16 @@ const SlotSpinner = ({ winRate, IconArr}) => {
           setDisplayIconThree(winIcon);
           clearInterval(spinnerInterval);
           clearTimeout(spinnerTimeout2)
-          const winIconTimeout = setTimeout(() => {
-            setRerunAnim(false);
-            clearTimeout(winIconTimeout);
-          }, 700)
           const shortTimeout = setTimeout(() => {
             setPrizeTrigger(true);
             clearTimeout(shortTimeout);
           }, 500)
           const winTimeout = setTimeout(() => {
             setPrizeTrigger(false);
+            setRerunAnim(false);
             setTrigger(prev => !prev);
             clearTimeout(winTimeout);
-          }, 9500)
+          }, 9000)
           return;
         }
         clearInterval(spinnerInterval);

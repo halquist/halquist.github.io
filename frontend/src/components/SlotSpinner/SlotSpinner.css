@@ -166,36 +166,36 @@
 
 #prize1 {
   offset-path: path('M250,250c0,0,45.916-172.989,104.017,0,c0,0,13.967,48.407,15.643,60.698c0,0,27.933-134.637,59.776,0c0,0,18.822-69.833,44.693,0');
-  animation: coin_1 1.3s ease-out 6;
+  animation: coin_1 1.3s ease-out infinite;
   /* transition: .3s; */
 }
 #prize2 {
   offset-path: path('M250,250c0,0-47.147-145.939-100.454,0,c0,0-11.732,35.558-11.732,60.698c0,0-33.519-127.375-64.804,0c0,0-20.112-72.626-35.196,0');
-  animation: coin_2 1.3s .1s ease-out 6;
+  animation: coin_2 1.3s .1s ease-out infinite;
   /* transition: .3s; */
 
 }
 #prize3 {
   offset-path: path('M250,250c0,0-28.387-226.621-59.113,0c0,0-8.38,56.789-8.38,84.722,c0,0-34.079-210.614-65.363,0c0,0-18.995-124.021-40.783,0');
-  animation: coin_3 1.3s .2s ease-out 6;
+  animation: coin_3 1.3s .2s ease-out infinite;
   /* transition: .3s; */
 
 }
 #prize4 {
   offset-path: path('M250,250c0,0,17.982-206.202,41.445-2.082,c0,0,8.938,58.314,8.938,86.804c0,0,27.933-224.021,51.396,0c0,0,21.229-135.752,53.072,0');
-  animation: coin_4 1.3s .3s ease-out 6;
+  animation: coin_4 1.3s .3s ease-out infinite;
   /* transition: .3s; */
 
 }
 #prize5 {
   offset-path: path('M250,250c0,0-52.409-111.371-95.984,127.176,c0,0-26.816-180.446-60.894,0c0,0-17.877-108.938-41.899,0');
-  animation: coin_5 1.3s .4s ease-out  6;
+  animation: coin_5 1.3s .4s ease-out  infinite;
   /* transition: .3s; */
 
 }
 #prize6 {
   offset-path: path('M250,250c0,0,36.977-123.661,55.971,127.176,c0,0,34.078-182.681,59.218,0c0,0,25.699-96.647,54.19,0');
-  animation: coin_6 1.3s .5s ease-out 6;
+  animation: coin_6 1.3s .5s ease-out infinite;
   /* transition: .3s; */
 
 }
@@ -265,4 +265,32 @@
     transform: scale(1.5) ;
     offset-distance: 100%;
   }
+}
+
+#spinnerIconOneWin,
+#spinnerIconTwoWin,
+#spinnerIconThreeWin {
+  animation: win_pulse 2.5s ease-in-out infinite;
+  transition: .3s;
+}
+
+
+@keyframes win_pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0px  0px 0px rgb(0, 0, 0, 0));
+  } 25% {
+    transform: rotate(6deg) scale(1.2);
+    filter: drop-shadow(0px  0px 4px rgb(0, 0, 0, .3));
+  } 50% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0px  0px 0px rgb(0, 0, 0, 0));
+  } 75% {
+    transform: rotate(-6deg) scale(1.2);
+    filter: drop-shadow(0px  0px 4px rgb(0, 0, 0, .3));
+  } 100% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0px  0px 0px rgb(0, 0, 0, 0));
+  }
+
 }
