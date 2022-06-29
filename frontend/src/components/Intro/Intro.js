@@ -4,6 +4,7 @@ import skullPCB from '../../images/skullPCB.svg';
 import circuitHorse from '../../images/circuit_horse.svg'
 import SlotSpinner from '../SlotSpinner/SlotSpinner';
 import IconArr from './IconArr';
+import InfoCell from '../InfoCell';
 
 const Intro = () => {
   return (
@@ -11,7 +12,7 @@ const Intro = () => {
       <div className='contentHero'>
         {/* <img id='meHeadshot' src={me_headshot} width='220px'/> */}
         <div className='subContentDiv'>
-          <img id='meHeadshot' src={circuitHorse} width='150px'/>
+          <img id='circuitHorse' src={circuitHorse} width='150px'/>
           <div className='contentDiv'>
             <div id='titleName'>JON HALQUIST</div>
             <div id='subName'>Software Engineer & Design</div>
@@ -24,6 +25,7 @@ const Intro = () => {
       <div id='slotContainer'>
         {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
       </div>
+      <InfoCell />
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
     </div>
   )
