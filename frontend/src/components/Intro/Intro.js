@@ -5,6 +5,8 @@ import circuitHorse from '../../images/circuit_horse.svg'
 import SlotSpinner from '../SlotSpinner/SlotSpinner';
 import IconArr from './IconArr';
 import InfoCell from '../InfoCell';
+import AboutMe from './AboutMe';
+import { Element } from 'react-scroll';
 
 const Intro = () => {
   return (
@@ -25,7 +27,9 @@ const Intro = () => {
       <div id='slotContainer'>
         {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
       </div>
-      <InfoCell />
+      <Element id='aboutScroll' name='aboutScroll'>
+        <InfoCell props={AboutMe}/>
+      </Element>
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
     </div>
   )

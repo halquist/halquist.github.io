@@ -1,5 +1,5 @@
 .navBar {
-  width: 100%;
+  width: 100vw;
   background-color: #42484D;
   position: fixed;
   left: 0px;
@@ -19,9 +19,10 @@
 
 .navContent {
   display: flex;
-  max-width: 100%;
-  justify-content: space-around;
-  margin: 0px 20px;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0px 20px; */
 }
 
 .navContainer {
@@ -80,21 +81,56 @@ color: white;
   margin: 0px 10px;
 }
 
-#logoNameDiv {
+.aboutLink {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: #E4AF23;
+  font-size: 1.3em;
+  font-weight: 400;
+  border-right: 1px solid #2C3238;
+  border-left: 1px solid #2C3238;
+  border-radius: 0px 0px 4px 4px;
+  height: 60px;
+  width: 100px;
+  user-select: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.aboutLink:hover {
+  background-color: rgba(44, 50, 56);
+  color: whitesmoke;
+}
+
+.aboutLinkActive {
+  color: #2C3238;
+  background-color: #E4AF23;
+}
+
+.active {
+  color: #2C3238;
+  background-color: #E4AF23;
+}
+
+#logoNameDiv {
+  width: fit-content;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 #logoCombo {
+  width: fit-content;
   position: relative;
   /* bottom: 58px; */
   /* animation: slide_down 1s ease-in-out; */
 }
 
 #logoCrest {
-  position: absolute;
-  bottom: -61px;
+  position: relative;
+  bottom: -3px;
+  /* left: 100%; */
   opacity: 1;
   filter: drop-shadow(0px 5px 0px rgba(0, 0, 0, .1));
   /* box-shadow: 0px 4px 5px rgba(0, 0, 0, .3); */
@@ -104,7 +140,8 @@ color: white;
 
 #logo {
   position: absolute;
-  bottom: -66px;
+  bottom: -6px;
+  left: 0vw;
   opacity: 1;
   transform-origin: 40px 61px;
   animation: slide_down_spin 1.5s ease-in-out;

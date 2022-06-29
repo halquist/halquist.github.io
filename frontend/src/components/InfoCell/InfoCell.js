@@ -1,30 +1,27 @@
 import './InfoCell.css';
-import me_headshot from '../../images/me_headshot.png';
+import LogoSmall from '../Intro/LogoSmall';
 
+// props should pass an object with a title entry, a content entry which is an array of paragraphs
+// and one or 2 images, which are linked to the image in the object file
+const InfoCell = ({ props }) => {
 
-const InfoCell = () => {
   return(
     <div className='infoOuterContainer'>
+      <div className='photoContainer'>
+        <img id='meHeadshot' src={props.image1} width='290px'/>
+      </div>
       <div className='textContainer'>
         <div className='cellTitleText'>
-          About Me
+          {/* <LogoSmall /> */}
+          {props.title}
+          <div className='fillLineHorizontal'></div>
         </div>
-        <p className='cellContentText'>
-        I am a creative and passionate software engineer who grew up in a B&B on the shores of lake Superior.
-        </p>
-        <p className='cellContentText'>
-        I have trained in classical and jazz music, as well as art and graphic design. I studied coding independently
-        starting in high school.
-        Earlier this year I completed a 6 month full-time full-stack engineering boot camp at App Academy.
-        I was more energized by studying, learning, and applying software engineering concepts and skills than I have
-        in many years!
-        </p>
-        <p className='cellContentText'>
-        Software engineering is a fantastic intersection of the skills I have built over my life.
-        </p>
-      </div>
-      <div className='photoContainer'>
-        <img id='meHeadshot' src={me_headshot} width='260px'/>
+        <div className='cellContentContainer'>
+          <div className='fillLineVertical'></div>
+          <div className='cellContent'>
+            {props.content.map((el) => <p className='cellContentText' key={el[1] + el[2]}>{el}</p>)}
+          </div>
+        </div>
       </div>
     </div>
   )
