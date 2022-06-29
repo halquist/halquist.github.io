@@ -24,13 +24,13 @@ const Intro = () => {
       <div className='contentDiv2'>
         <div id='subName2'>The most wonderful feeling I have ever known is the sharp glow of anxious joy as one of my creations spreads its wings and takes flight into the world.</div>
       </div>
-      <div id='slotContainer'>
-        {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
-      </div>
       <Element id='aboutScroll' name='aboutScroll'>
         <InfoCell props={AboutMe}/>
       </Element>
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
+      <div id='slotContainer'>
+        <SlotSpinner winRate='4' IconArr={IconArr} />
+      </div>
     </div>
   )
 };

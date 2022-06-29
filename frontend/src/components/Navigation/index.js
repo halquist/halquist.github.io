@@ -52,6 +52,18 @@ function Navigation({ isLoaded }){
           >
             About
           </ScrollLink>
+          <ScrollLink
+            to='skillsScroll'
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-100}
+            className='aboutLink'
+            activeClass='aboutLinkActive'
+            onClick={spinLogo}
+          >
+            Skills
+          </ScrollLink>
             {/* <LogoCrest /> */}
           <div id='logoNameDiv'>
             {reloadLogo &&
@@ -59,6 +71,30 @@ function Navigation({ isLoaded }){
             }
             {/* <Name /> */}
           </div>
+          <ScrollLink
+            to='projectsScroll'
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-100}
+            className='aboutLink'
+            activeClass='aboutLinkActive'
+            onClick={spinLogo}
+          >
+            Projects
+          </ScrollLink>
+          <ScrollLink
+            to='contactScroll'
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-100}
+            className='aboutLink'
+            activeClass='aboutLinkActive'
+            onClick={spinLogo}
+          >
+            Contact
+          </ScrollLink>
           {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
           {/* {isLoaded && sessionLinks} */}
         </div>

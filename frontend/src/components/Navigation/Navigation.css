@@ -22,6 +22,7 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
+  gap: 3px;
   /* margin: 0px 20px; */
 }
 
@@ -90,12 +91,16 @@ color: white;
   font-weight: 400;
   border-right: 1px solid #2C3238;
   border-left: 1px solid #2C3238;
-  border-radius: 0px 0px 4px 4px;
+  border-bottom: 0px solid rgba(43, 50, 56, .6);
+  /* border-radius: 0px 0px 10px 10px; */
   height: 60px;
   width: 100px;
   user-select: none;
   cursor: pointer;
   transition: .2s;
+  border-bottom: 5px solid rgba(43, 50, 56, .6);
+  box-shadow: inset 0px 0px 6px rgba(255, 255, 255, 0.2);
+  transform: scale(1.04);
 }
 
 .aboutLink:hover {
@@ -104,14 +109,16 @@ color: white;
 }
 
 .aboutLinkActive {
-  color: #2C3238;
-  background-color: #E4AF23;
+  /* color: #2C3238; */
+  /* background-color: #E4AF23; */
+  /* font-weight: 900; */
+  border-bottom: 0px solid rgba(43, 50, 56, .6);
+  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+
+
 }
 
-.active {
-  color: #2C3238;
-  background-color: #E4AF23;
-}
 
 #logoNameDiv {
   width: fit-content;
