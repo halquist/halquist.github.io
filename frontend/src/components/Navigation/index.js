@@ -38,7 +38,6 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='navBar'>
-      <div className='navContainer'>
         <div className='navContent'>
           <ScrollLink
             to='aboutScroll'
@@ -48,6 +47,7 @@ function Navigation({ isLoaded }){
             offset={-100}
             className='aboutLink'
             activeClass='aboutLinkActive'
+            id='aboutLink'
             onClick={spinLogo}
           >
             About
@@ -59,17 +59,19 @@ function Navigation({ isLoaded }){
             duration={500}
             offset={-100}
             className='aboutLink'
+            id='skillsLink'
             activeClass='aboutLinkActive'
             onClick={spinLogo}
           >
             Skills
           </ScrollLink>
-            {/* <LogoCrest /> */}
           <div id='logoNameDiv'>
             {reloadLogo &&
               <LogoCrest />
             }
-            {/* <Name /> */}
+            {!reloadLogo &&
+              <LogoCrest />
+            }
           </div>
           <ScrollLink
             to='projectsScroll'
@@ -78,6 +80,7 @@ function Navigation({ isLoaded }){
             duration={500}
             offset={-100}
             className='aboutLink'
+            id='projectsLink'
             activeClass='aboutLinkActive'
             onClick={spinLogo}
           >
@@ -90,6 +93,7 @@ function Navigation({ isLoaded }){
             duration={500}
             offset={-100}
             className='aboutLink'
+            id='contactLink'
             activeClass='aboutLinkActive'
             onClick={spinLogo}
           >
@@ -98,7 +102,6 @@ function Navigation({ isLoaded }){
           {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
           {/* {isLoaded && sessionLinks} */}
         </div>
-      </div>
     </div>
   );
 }

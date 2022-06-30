@@ -93,7 +93,7 @@ const SlotSpinner = ({ winRate, IconArr}) => {
             setPrizeTrigger(false);
             setTrigger(prev => !prev);
             clearTimeout(winTimeout);
-          }, 9500)
+          }, 5600)
           return;
         }
         clearInterval(spinnerInterval);
