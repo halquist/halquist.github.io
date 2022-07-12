@@ -142,3 +142,10 @@
 #aboutScroll {
   margin-bottom: 200px;
 }
+
+#skillsScroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

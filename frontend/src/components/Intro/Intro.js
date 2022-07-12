@@ -30,9 +30,9 @@ const Intro = () => {
         <InfoCellLeft props={AboutMe}/>
       </Element>
       <Element id='skillsScroll' name='skillsScroll'>
+        <SlotSpinner winRate='4' IconArr={IconArr} />
         <InfoCellRight props={Skills}/>
       </Element>
-        <SlotSpinner winRate='4' IconArr={IconArr} />
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
       <div id='slotContainer'>
       </div>

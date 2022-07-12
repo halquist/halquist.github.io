@@ -24,6 +24,7 @@
   border-radius: 20px;
   /* background-color: rgba(0, 0, 0, 0.2); */
   padding: 10px;
+  margin-bottom: 500px;
 }
 
 .textContainer {
@@ -61,7 +62,7 @@
 }
 
 .cellContentText {
-  color: #E4AF23;
+  color: #ffffff;
   font-size: 1.2em;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -96,4 +97,19 @@
   .infoOuterContainerRight {
     flex-direction: column;
   }
+}
+
+.skillTable {
+  /* display: flex; */
+  flex-wrap: wrap;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+
+.skillTable, tr, td {
+  padding: 4px 10px;
+  color: #ffffff;
+  font-size: 1.05em;
+  /* border: 1px solid; */
 }

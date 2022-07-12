@@ -8,7 +8,7 @@ const InfoCellRight = ({ props }) => {
   return(
     <div className='infoOuterContainerRight'>
       <div className='photoContainer'>
-        <img id='highlightImage' src={props.image1} width='290px'/>
+        {/* <img id='highlightImage' src={props.image1} width='220px'/> */}
       </div>
       <div className='textContainer'>
         <div className='cellTitleText'>
@@ -18,7 +18,43 @@ const InfoCellRight = ({ props }) => {
         </div>
         <div className='cellContentContainer'>
           <div className='cellContent'>
-            {props.content.map((el) => <p className='cellContentText' key={el[1] + el[2]}>{el}</p>)}
+            {/* {props.content.map((el) => <p className='cellContentText' key={el[1] + el[2]}>{el}</p>)} */}
+            <table className='skillTable'>
+              <tr>
+                <td>React</td>
+                <td>Redux</td>
+                <td>Javascript</td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>AWS</td>
+                <td>HTML</td>
+              </tr>
+              <tr>
+                <td>CSS</td>
+                <td>Express</td>
+                <td>Flask</td>
+              </tr>
+              <tr>
+                <td>SQL</td>
+                <td>PostgreSQL</td>
+                <td>SQLAlchemy</td>
+              </tr>
+              <tr>
+                <td>Sequelize</td>
+                <td>Docker</td>
+                <td>Node</td>
+              </tr>
+              <tr>
+                <td>Pug</td>
+                <td>Git</td>
+                <td>VS Code</td>
+              </tr>
+              <tr>
+                <td>Heroku</td>
+                <td>Mocha</td>
+              </tr>
+            </table>
           </div>
           <div className='fillLineVertical'></div>
         </div>
