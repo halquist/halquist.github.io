@@ -4,8 +4,10 @@ import skullPCB from '../../images/skullPCB.svg';
 import circuitHorse from '../../images/circuit_horse.svg'
 import SlotSpinner from '../SlotSpinner/SlotSpinner';
 import IconArr from './IconArr';
-import InfoCell from '../InfoCell';
-import AboutMe from './AboutMe';
+import InfoCellLeft, {InfoCellRight} from '../InfoCell';
+
+import AboutMe from './ContentArrs/AboutMe';
+import Skills from './ContentArrs/Skills';
 import { Element } from 'react-scroll';
 
 const Intro = () => {
@@ -25,11 +27,14 @@ const Intro = () => {
         <div id='subName2'>The most wonderful feeling I have ever known is the sharp glow of anxious joy as one of my creations spreads its wings and takes flight into the world.</div>
       </div>
       <Element id='aboutScroll' name='aboutScroll'>
-        <InfoCell props={AboutMe}/>
+        <InfoCellLeft props={AboutMe}/>
       </Element>
+      <Element id='skillsScroll' name='skillsScroll'>
+        <InfoCellRight props={Skills}/>
+      </Element>
+        <SlotSpinner winRate='4' IconArr={IconArr} />
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
       <div id='slotContainer'>
-        <SlotSpinner winRate='4' IconArr={IconArr} />
       </div>
     </div>
   )

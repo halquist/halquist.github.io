@@ -12,6 +12,7 @@
   /* height: 250px; */
   padding: 20px;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 #fullSpinnerRow {
@@ -20,26 +21,6 @@
   justify-content: center;
   align-items: flex-start;
   gap: 6px;
-}
-
-#slotBottom {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.4em;
-  text-align: center;
-  color: #E4AF23;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #CE5438;
-  border-radius: 6px;
-  height: 100px;
-  width: 248px;
-  border: 1px solid rgba(0, 0, 0, .5);
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, .9);
-  /* background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 50% , rgba(255, 255, 255, 0.2) 100%); */
-  filter: drop-shadow(-1px  -1px rgba(0, 0, 0, 0.3));
-
 }
 
 .spinnerContainer {
@@ -69,7 +50,6 @@
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   width: 110px;
   height: 130px;
-  filter: drop-shadow(-1px  -1px rgba(0, 0, 0, 0.3));
 
 }
 

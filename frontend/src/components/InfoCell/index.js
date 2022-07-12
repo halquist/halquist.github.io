@@ -1,3 +1,5 @@
-import InfoCell from './InfoCell.js';
+import InfoCellLeft from './InfoCellLeft.js';
+import InfoCellRight from './InfoCellRight.js';
 
-export default InfoCell;
+export { InfoCellRight };
+export default InfoCellLeft;

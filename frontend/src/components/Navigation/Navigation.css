@@ -83,7 +83,8 @@ color: white;
   margin: 0px 10px;
 }
 
-.aboutLink {
+.aboutLink,
+.skillsLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,12 +111,18 @@ color: white;
   color: whitesmoke;
 }
 
+.skillsLink:hover {
+  background-color: rgba(44, 50, 56);
+  color: whitesmoke;
+}
+
 /* .aboutLink:active {
   border-bottom: 0px solid rgba(43, 50, 56, .6);
   box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.7);
 } */
 
-.aboutLinkActive {
+.aboutLinkActive,
+.skillsLinkActive {
   /* color: #2C3238; */
   /* background-color: #E4AF23; */
   /* font-weight: 900; */
