@@ -3,7 +3,7 @@ import LogoSmall from '../Intro/LogoSmall';
 
 // props should pass an object with a title entry, a content entry which is an array of paragraphs
 // and one or 2 images, which are linked to the image in the object file
-const InfoCell = ({ props }) => {
+const InfoCellLeft = ({ props }) => {
 
   return(
     <div className='infoOuterContainer'>
@@ -27,4 +27,4 @@ const InfoCell = ({ props }) => {
   )
 };
 
-export default InfoCell;
+export default InfoCellLeft;

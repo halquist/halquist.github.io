@@ -20,6 +20,7 @@
   width: 100vw;
   max-width: 825px;
   /* min-width: 350px; */
+  /* padding-left: calc(100vw - 100%); */
 }
 
 .contentHero {
@@ -60,6 +61,7 @@
   align-items: center;
   padding: 0px 12px 12px 12px;
   margin-top: 20px;
+  margin-bottom: 100px;
   /* flex-shrink: 1.6; */
 }
 
@@ -138,5 +140,12 @@
 }
 
 #aboutScroll {
-  margin-bottom: 300px;
+  margin-bottom: 200px;
+}
+
+#skillsScroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

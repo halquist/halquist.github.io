@@ -1,3 +1,6 @@
-import InfoCell from './InfoCell.js';
+import InfoCellLeft from './InfoCellLeft.js';
+import InfoCellRight from './InfoCellRight.js';
+import InfoCellProjects from './InfoCellProjects.js';
 
-export default InfoCell;
+export { InfoCellRight, InfoCellProjects };
+export default InfoCellLeft;

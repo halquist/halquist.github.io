@@ -1,4 +1,4 @@
-import me_headshot from '../../images/me_headshot.png';
+import me_headshot from '../../../images/me_headshot.png';
 
 const AboutMe ={
   title: 'About Me',
