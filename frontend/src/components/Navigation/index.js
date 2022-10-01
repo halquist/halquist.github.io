@@ -58,7 +58,7 @@ function Navigation({ isLoaded }){
             smooth={true}
             duration={500}
             offset={-100}
-            className='skillsLink'
+            className='aboutLink'
             id='skillsLink'
             activeClass='skillsLinkActive'
             onClick={spinLogo}
