@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.d6ee0bd7.css",
-    "main.js": "/static/js/main.e5a58530.js",
+    "main.css": "/static/css/main.bc311ce5.css",
+    "main.js": "/static/js/main.c03fa3e8.js",
     "static/media/me_headshot.png": "/static/media/me_headshot.aec9bed50e2b13e3b9d9.png",
     "static/media/skullPCB.svg": "/static/media/skullPCB.f36283736bbb9d240081064ad8c9a5f3.svg",
+    "static/media/audiohaze.png": "/static/media/audiohaze.8552ce2f1a3caf416b9d.png",
     "static/media/gear_color.png": "/static/media/gear_color.d486abd456dddb1dcbed.png",
-    "static/media/circuit_horse.svg": "/static/media/circuit_horse.406d6ea65f1dce0026cbddde050bcf20.svg",
-    "static/media/background_trees.svg": "/static/media/background_trees.84a6fe4dbd3976cca39e.svg",
+    "static/media/circuit_horse.svg": "/static/media/circuit_horse.e9926e387a97f4f170af6bc4397eaa04.svg",
+    "static/media/background_trees.svg": "/static/media/background_trees.2c461452e8f796dc68a1.svg",
     "index.html": "/index.html",
-    "main.d6ee0bd7.css.map": "/static/css/main.d6ee0bd7.css.map",
-    "main.e5a58530.js.map": "/static/js/main.e5a58530.js.map"
+    "main.bc311ce5.css.map": "/static/css/main.bc311ce5.css.map",
+    "main.c03fa3e8.js.map": "/static/js/main.c03fa3e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6ee0bd7.css",
-    "static/js/main.e5a58530.js"
+    "static/css/main.bc311ce5.css",
+    "static/js/main.c03fa3e8.js"
   ]
 }
