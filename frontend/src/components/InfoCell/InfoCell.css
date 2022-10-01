@@ -113,3 +113,11 @@
   font-size: 1.05em;
   /* border: 1px solid; */
 }
+
+#highlightImage2 {
+  border-radius: 6px;
+}
+
+.cellContent2 {
+  background-color: #CE5438;
+}

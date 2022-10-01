@@ -4,7 +4,8 @@ import skullPCB from '../../images/skullPCB.svg';
 import circuitHorse from '../../images/circuit_horse.svg'
 import SlotSpinner from '../SlotSpinner/SlotSpinner';
 import IconArr from './IconArr';
-import InfoCellLeft, {InfoCellRight} from '../InfoCell';
+import InfoCellLeft, {InfoCellRight, InfoCellProjects} from '../InfoCell';
+
 
 import AboutMe from './ContentArrs/AboutMe';
 import Skills from './ContentArrs/Skills';
@@ -32,6 +33,9 @@ const Intro = () => {
       <Element id='skillsScroll' name='skillsScroll'>
         <SlotSpinner winRate='4' IconArr={IconArr} />
         <InfoCellRight props={Skills}/>
+      </Element>
+      <Element id='projectsScroll' name='projectsScroll'>
+        <InfoCellProjects props={Skills}/>
       </Element>
       {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
       <div id='slotContainer'>
