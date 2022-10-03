@@ -31,7 +31,7 @@ const Intro = () => {
         <InfoCellLeft props={AboutMe}/>
       </Element>
       <Element id='skillsScroll' name='skillsScroll'>
-        <SlotSpinner winRate='4' IconArr={IconArr} />
+        {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
         <InfoCellRight props={Skills}/>
       </Element>
       <Element id='projectsScroll' name='projectsScroll'>

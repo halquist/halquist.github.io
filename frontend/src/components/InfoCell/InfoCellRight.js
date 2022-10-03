@@ -1,5 +1,8 @@
 import './InfoCell.css';
 import LogoSmall from '../Intro/LogoSmall';
+import SlotSpinner from '../SlotSpinner'
+import IconArr from './IconArr';
+
 
 // props should pass an object with a title entry, a content entry which is an array of paragraphs
 // and one or 2 images, which are linked to the image in the object file
@@ -7,8 +10,9 @@ const InfoCellRight = ({ props }) => {
 
   return(
     <div className='infoOuterContainerRight'>
-      <div className='photoContainer'>
+      <div className='slotContainer'>
         {/* <img id='highlightImage' src={props.image1} width='220px'/> */}
+        <SlotSpinner winRate='4' IconArr={IconArr} />
       </div>
       <div className='textContainer'>
         <div className='cellTitleText'>
