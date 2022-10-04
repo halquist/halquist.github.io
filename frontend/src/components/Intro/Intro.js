@@ -12,6 +12,9 @@ import Skills from './ContentArrs/Skills';
 import { Element } from 'react-scroll';
 
 const Intro = () => {
+
+
+
   return (
     <div id='topContainer'>
       <div className='contentHero'>
@@ -30,10 +33,12 @@ const Intro = () => {
       <Element id='aboutScroll' name='aboutScroll'>
         <InfoCellLeft props={AboutMe}/>
       </Element>
+        <div className='spacerDiv'></div>
       <Element id='skillsScroll' name='skillsScroll'>
         {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
         <InfoCellRight props={Skills}/>
       </Element>
+        <div className='spacerDiv'></div>
       <Element id='projectsScroll' name='projectsScroll'>
         <InfoCellProjects props={Skills}/>
       </Element>

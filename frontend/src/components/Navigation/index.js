@@ -45,6 +45,7 @@ function Navigation({ isLoaded }){
             smooth={true}
             duration={500}
             offset={-100}
+            isDynamic={true}
             className='aboutLink'
             activeClass='aboutLinkActive'
             id='aboutLink'
@@ -58,9 +59,10 @@ function Navigation({ isLoaded }){
             smooth={true}
             duration={500}
             offset={-100}
-            className='aboutLink'
-            id='skillsLink'
+            isDynamic={true}
+            className='skillsLink'
             activeClass='skillsLinkActive'
+            id='skillsLink'
             onClick={spinLogo}
           >
             Skills
@@ -79,6 +81,7 @@ function Navigation({ isLoaded }){
             smooth={true}
             duration={500}
             offset={-100}
+            isDynamic={true}
             className='aboutLink'
             id='projectsLink'
             activeClass='aboutLinkActive'
@@ -92,6 +95,7 @@ function Navigation({ isLoaded }){
             smooth={true}
             duration={500}
             offset={-100}
+            isDynamic={true}
             className='aboutLink'
             id='contactLink'
             activeClass='aboutLinkActive'
