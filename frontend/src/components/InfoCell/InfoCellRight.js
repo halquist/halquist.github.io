@@ -27,30 +27,36 @@ const InfoCellRight = ({ props }) => {
               <tr>
                 <td>React</td>
                 <td>Redux</td>
-                <td>Javascript</td>
               </tr>
               <tr>
+                <td>Javascript</td>
                 <td>Python</td>
+              </tr>
+              <tr>
                 <td>AWS</td>
                 <td>HTML</td>
               </tr>
               <tr>
                 <td>CSS</td>
                 <td>Express</td>
-                <td>Flask</td>
               </tr>
               <tr>
+                <td>Flask</td>
                 <td>SQL</td>
+              </tr>
+              <tr>
                 <td>PostgreSQL</td>
                 <td>SQLAlchemy</td>
               </tr>
               <tr>
                 <td>Sequelize</td>
                 <td>Docker</td>
-                <td>Node</td>
               </tr>
               <tr>
+                <td>Node.js</td>
                 <td>Pug</td>
+              </tr>
+              <tr>
                 <td>Git</td>
                 <td>VS Code</td>
               </tr>
