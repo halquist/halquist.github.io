@@ -1,0 +1,39 @@
+.linksSliderContainer {
+  position: fixed;
+  right: 30px;
+  top: 30%;
+  width: 0px;
+  height: 0px;
+}
+
+.rotateContainer {
+  transform: rotate(90deg);
+  display: flex;
+  gap: 10px;
+}
+
+.sideAnchor {
+  background-color: #000000;
+  color: #00e5ff !important;
+  font-size: 1.1em;
+  /* font-weight: bold; */
+  /* filter: drop-shadow(0px 0px 5px #00e5ff); */
+  padding: 2px 6px 2px 2px;
+  /* border: 1px solid #00e5ff; */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* border-radius: 20px; */
+}
+
+.sideAnchor:hover {
+  color: white !important;
+}
+
+.icon {
+    filter: drop-shadow(0px 0px 5px #00e5ff);
+}
+
+.sideText {
+  filter: drop-shadow(0px 0px 5px #00e5ff);
+}
