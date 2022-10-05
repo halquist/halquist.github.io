@@ -62,9 +62,9 @@ function Navigation({ isLoaded }){
             duration={500}
             offset={-100}
             isDynamic={true}
-            className='skillsLink'
-            activeClass='skillsLinkActive'
-            id='skillsLink'
+            className='aboutLink'
+            activeClass='aboutLinkActive'
+            id='aboutLink'
             onClick={spinLogo}
           >
             Skills
