@@ -1,9 +1,9 @@
 import './Intro.css';
-import me_headshot from '../../images/me_headshot.png';
-import skullPCB from '../../images/skullPCB.svg';
+// import me_headshot from '../../images/me_headshot.png';
+// import skullPCB from '../../images/skullPCB.svg';
 import circuitHorse from '../../images/circuit_horse.svg'
-import SlotSpinner from '../SlotSpinner/SlotSpinner';
-import IconArr from './IconArr';
+// import SlotSpinner from '../SlotSpinner/SlotSpinner';
+// import IconArr from './IconArr';
 import InfoCellLeft, {InfoCellRight, InfoCellProjects} from '../InfoCell';
 
 
