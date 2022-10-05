@@ -49,6 +49,18 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  color: rgb(0, 229, 255);
+  text-decoration: none;
+  margin: none;
+  padding: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgb(0, 229, 255);
+}
+
 @keyframes fade_in {
   0% {
     /* opacity: 0; */
