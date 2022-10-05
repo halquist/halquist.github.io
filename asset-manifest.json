@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.d808acea.css",
+    "main.css": "/static/css/main.c8b06068.css",
     "main.js": "/static/js/main.d5c382d2.js",
     "static/media/me_headshot.png": "/static/media/me_headshot.aec9bed50e2b13e3b9d9.png",
     "static/media/audiohaze.png": "/static/media/audiohaze.8552ce2f1a3caf416b9d.png",
@@ -9,14 +9,14 @@
     "static/media/wineaux.png": "/static/media/wineaux.ed2d0693f6a24c189aca.png",
     "static/media/circuit_horse.svg": "/static/media/circuit_horse.e54cb8afce09a9aff80a063ee8c273e0.svg",
     "static/media/github.svg": "/static/media/github.fc52522eed385f05339e44e44fdd4b5e.svg",
-    "static/media/background_trees.svg": "/static/media/background_trees.2c461452e8f796dc68a1.svg",
+    "static/media/background_trees.svg": "/static/media/background_trees.ad5708e43de0ba6133d2.svg",
     "index.html": "/index.html",
     "static/media/linkedin.svg": "/static/media/linkedin.3411ed82ad040bce5b6899be0d6b6d61.svg",
-    "main.d808acea.css.map": "/static/css/main.d808acea.css.map",
+    "main.c8b06068.css.map": "/static/css/main.c8b06068.css.map",
     "main.d5c382d2.js.map": "/static/js/main.d5c382d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.d808acea.css",
+    "static/css/main.c8b06068.css",
     "static/js/main.d5c382d2.js"
   ]
 }
