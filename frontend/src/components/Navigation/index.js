@@ -91,20 +91,26 @@ function Navigation({ isLoaded }){
           >
             Projects
           </ScrollLink>
-          <ScrollLink
-            to='contactScroll'
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-100}
-            isDynamic={true}
-            className='aboutLink'
-            id='contactLink'
-            activeClass='aboutLinkActive'
-            onClick={spinLogo}
-          >
-            Contact
-          </ScrollLink>
+           {/* <ScrollLink
+              to='contactScroll'
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100}
+              isDynamic={true}
+              className='aboutLink'
+              id='contactLink'
+              activeClass='aboutLinkActive'
+              onClick={() => {
+                spinLogo()
+                setShowMenu(false)
+              }}
+            >
+              Contact
+            </ScrollLink> */}
+            <a className='aboutLink' id='contactLink' href='mailto: jon.halquist@gmail.com' target="_blank">
+              Contact
+            </a>
           {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
           {/* {isLoaded && sessionLinks} */}
         </div>
@@ -132,7 +138,10 @@ function Navigation({ isLoaded }){
               className='aboutLink'
               activeClass='aboutLinkActive'
               id='aboutLink'
-              onClick={spinLogo}
+              onClick={() => {
+                spinLogo()
+                setShowMenu(false)
+              }}
             >
               About
             </ScrollLink>
@@ -146,7 +155,10 @@ function Navigation({ isLoaded }){
               className='skillsLink'
               activeClass='skillsLinkActive'
               id='skillsLink'
-              onClick={spinLogo}
+              onClick={() => {
+                spinLogo()
+                setShowMenu(false)
+              }}
             >
               Skills
             </ScrollLink>
@@ -161,11 +173,14 @@ function Navigation({ isLoaded }){
               className='aboutLink'
               id='projectsLink'
               activeClass='aboutLinkActive'
-              onClick={spinLogo}
+              onClick={() => {
+                spinLogo()
+                setShowMenu(false)
+              }}
             >
               Projects
             </ScrollLink>
-            <ScrollLink
+            {/* <ScrollLink
               to='contactScroll'
               spy={true}
               smooth={true}
@@ -175,10 +190,16 @@ function Navigation({ isLoaded }){
               className='aboutLink'
               id='contactLink'
               activeClass='aboutLinkActive'
-              onClick={spinLogo}
+              onClick={() => {
+                spinLogo()
+                setShowMenu(false)
+              }}
             >
               Contact
-            </ScrollLink>
+            </ScrollLink> */}
+            <a className='aboutLink' id='contactLink' href='mailto: jon.halquist@gmail.com' target="_blank">
+              Contact
+            </a>
           </div> }
           {/* <NavLink exact to="/" className='homeText'>Home</NavLink> */}
           {/* {isLoaded && sessionLinks} */}
