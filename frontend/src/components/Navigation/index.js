@@ -197,7 +197,7 @@ function Navigation({ isLoaded }){
             >
               Contact
             </ScrollLink> */}
-            <a className='aboutLink' id='contactLink' href='mailto: jon.halquist@gmail.com' target="_blank">
+            <a className='aboutLink' id='contactLink' href='mailto: jon.halquist@gmail.com'>
               Contact
             </a>
           </div> }
