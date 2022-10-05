@@ -16,11 +16,13 @@
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  /* padding-top: 60px; */
-  width: 100vw;
-  max-width: 925px;
+  /* width: 100vw; */
+  /* max-width: 925px; */
   /* min-width: 350px; */
   /* padding-left: calc(100vw - 100%); */
+  width: 80vw;
+  max-width: 925px;
+  min-width: 450px;
 }
 
 .contentHero {
@@ -115,6 +117,7 @@
 @media screen and (orientation: portrait) {
   #topContainer {
     flex-direction: column;
+    min-width: 0px;
   }
   .contentDiv2 {
     margin-top: 10px;
@@ -130,6 +133,10 @@
     text-align: left;
     font-size: 2em;
   }
+  /* #topContainer {
+    flex-direction: column;
+    min-width: 0px;
+  } */
 }
 
 @keyframes blur_in {
