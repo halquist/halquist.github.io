@@ -138,117 +138,144 @@
 }
 
 
+/* Wrapper so motion path coordinate system is well-defined and centered above the slot */
+.prizeCoinsWrapper {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 380px;
+  pointer-events: none;
+  z-index: 20;
+}
+
 .prizeIcon {
   width: 60px;
   position: absolute;
-  right: 365px;
-  top: -280px;
+  left: 0;
+  top: 0;
   opacity: 0;
   z-index: 20;
-  filter: drop-shadow(2px  2px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(2px 2px rgba(255, 255, 255, 0.3));
   user-select: none;
+  offset-anchor: center;
+  -webkit-offset-anchor: center;
 }
 
 #prize1 {
   offset-path: path('M250,250c0,0,45.916-172.989,104.017,0,c0,0,13.967,48.407,15.643,60.698c0,0,27.933-134.637,59.776,0c0,0,18.822-69.833,44.693,0');
-  animation: coin_1 1.3s ease-out infinite;
-  /* transition: .3s; */
+  -webkit-offset-path: path('M250,250c0,0,45.916-172.989,104.017,0,c0,0,13.967,48.407,15.643,60.698c0,0,27.933-134.637,59.776,0c0,0,18.822-69.833,44.693,0');
+  animation: coin_1 1.3s ease-out forwards;
 }
 #prize2 {
   offset-path: path('M250,250c0,0-47.147-145.939-100.454,0,c0,0-11.732,35.558-11.732,60.698c0,0-33.519-127.375-64.804,0c0,0-20.112-72.626-35.196,0');
-  animation: coin_2 1.3s .1s ease-out infinite;
-  /* transition: .3s; */
-
+  -webkit-offset-path: path('M250,250c0,0-47.147-145.939-100.454,0,c0,0-11.732,35.558-11.732,60.698c0,0-33.519-127.375-64.804,0c0,0-20.112-72.626-35.196,0');
+  animation: coin_2 1.3s .1s ease-out forwards;
 }
 #prize3 {
   offset-path: path('M250,250c0,0-28.387-226.621-59.113,0c0,0-8.38,56.789-8.38,84.722,c0,0-34.079-210.614-65.363,0c0,0-18.995-124.021-40.783,0');
-  animation: coin_3 1.3s .2s ease-out infinite;
-  /* transition: .3s; */
-
+  -webkit-offset-path: path('M250,250c0,0-28.387-226.621-59.113,0c0,0-8.38,56.789-8.38,84.722,c0,0-34.079-210.614-65.363,0c0,0-18.995-124.021-40.783,0');
+  animation: coin_3 1.3s .2s ease-out forwards;
 }
 #prize4 {
   offset-path: path('M250,250c0,0,17.982-206.202,41.445-2.082,c0,0,8.938,58.314,8.938,86.804c0,0,27.933-224.021,51.396,0c0,0,21.229-135.752,53.072,0');
-  animation: coin_4 1.3s .3s ease-out infinite;
-  /* transition: .3s; */
-
+  -webkit-offset-path: path('M250,250c0,0,17.982-206.202,41.445-2.082,c0,0,8.938,58.314,8.938,86.804c0,0,27.933-224.021,51.396,0c0,0,21.229-135.752,53.072,0');
+  animation: coin_4 1.3s .3s ease-out forwards;
 }
 #prize5 {
   offset-path: path('M250,250c0,0-52.409-111.371-95.984,127.176,c0,0-26.816-180.446-60.894,0c0,0-17.877-108.938-41.899,0');
-  animation: coin_5 1.3s .4s ease-out  infinite;
-  /* transition: .3s; */
-
+  -webkit-offset-path: path('M250,250c0,0-52.409-111.371-95.984,127.176,c0,0-26.816-180.446-60.894,0c0,0-17.877-108.938-41.899,0');
+  animation: coin_5 1.3s .4s ease-out forwards;
 }
 #prize6 {
   offset-path: path('M250,250c0,0,36.977-123.661,55.971,127.176,c0,0,34.078-182.681,59.218,0c0,0,25.699-96.647,54.19,0');
-  animation: coin_6 1.3s .5s ease-out infinite;
-  /* transition: .3s; */
-
+  -webkit-offset-path: path('M250,250c0,0,36.977-123.661,55.971,127.176,c0,0,34.078-182.681,59.218,0c0,0,25.699-96.647,54.19,0');
+  animation: coin_6 1.3s .5s ease-out forwards;
 }
 
 @keyframes coin_1 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 @keyframes coin_2 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 @keyframes coin_3 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 @keyframes coin_4 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 @keyframes coin_5 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 @keyframes coin_6 {
   0% {
     opacity: 1;
-    transform: scale(.4) ;
+    transform: scale(0.4);
     offset-distance: 0%;
-  } 100% {
+    -webkit-offset-distance: 0%;
+  }
+  100% {
     opacity: 0;
-    transform: scale(1.5) ;
+    transform: scale(1.5);
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 

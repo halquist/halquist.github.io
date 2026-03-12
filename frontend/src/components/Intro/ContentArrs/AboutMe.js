@@ -3,10 +3,10 @@ import me_headshot from '../../../images/me_headshot.png';
 const AboutMe ={
   title: 'About Me',
   content: [
-    'I am a creative and passionate software engineer who grew up in a B&B on the shores of lake Superior.',
-    'I have trained in classical and jazz music, as well as art and graphic design. I studied coding independently starting in high school. Earlier this year I completed a 6 month full-time full-stack engineering boot camp at App Academy.',
-    'I was more energized by studying, learning, and applying software engineering concepts and skills than I have been in many years!',
-    'Software engineering is a fantastic intersection of the skills I have built over my life.'
+    'I’m a front-end software engineer who enjoys building interactive systems that combine technology, design, and creativity.',
+    'Before transitioning into professional software development, I spent years working in operations and studying programming independently. I later completed the full-stack engineering program at App Academy and went on to work as a software engineer at Extole, where I built and maintained production features using modern JavaScript frameworks and large-scale front-end architecture.',
+    'My work often sits at the intersection of engineering and creative exploration. I’m particularly interested in interactive graphics, generative art, game development, and experimental hardware projects using microcontrollers and LEDs.',
+    'I enjoy building things that bring people together, whether that’s web applications, interactive visual systems, or community-oriented technology projects.'
   ],
   image1: me_headshot
 }

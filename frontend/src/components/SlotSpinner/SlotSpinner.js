@@ -59,19 +59,12 @@ const SlotSpinner = ({ winRate, IconArr}) => {
         iconThree = randomArrFunc();
       }
 
-      // sets each icon to the randomly selected variables above
-
-      setDisplayIconOne(iconOne);
-      setDisplayIconTwo(iconTwo);
-      setDisplayIconThree(iconThree);
-
       // increments counter which determines how many times to run the spinner
       counter++;
 
       // once this conditional is met by the counter we determine if the spin will be a win or not
       // a series of timeouts will run the win animation, or reset the reel to spin again on a
       // non-win
-
       if (counter === 6) {
         const bigWin = Math.floor(Math.random() * winRate);
         if (bigWin === 0) {
@@ -105,22 +98,27 @@ const SlotSpinner = ({ winRate, IconArr}) => {
           clearTimeout(loseTimeout)
         }, 2000)
       }
+
+      // set reel icons only after deciding win/lose so the final symbols don't flip
+      setDisplayIconOne(iconOne);
+      setDisplayIconTwo(iconTwo);
+      setDisplayIconThree(iconThree);
     }, 500);
   },[trigger])
 
   return (
     <div id='slotMachineContainer'>
       <div id='fullSpinnerRow'>
-        {prizeTrigger &&
-          <>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize1'/>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize2'/>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize3'/>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize4'/>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize5'/>
-            <img src={displayIconOne} width="100" className='prizeIcon' id='prize6'/>
-          </>
-        }
+        {/* {prizeTrigger && (
+          <div className='prizeCoinsWrapper' aria-hidden="true">
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize1' alt="" />
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize2' alt="" />
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize3' alt="" />
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize4' alt="" />
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize5' alt="" />
+            <img src={displayIconOne} width="100" className='prizeIcon' id='prize6' alt="" />
+          </div>
+        )} */}
         <div className='spinnerContainer'>
           {/* <BpmCoin classPass={classPass}/> */}
           <div className='bpmValueDisplaySpinner'>
