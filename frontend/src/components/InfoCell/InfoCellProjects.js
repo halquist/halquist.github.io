@@ -49,13 +49,13 @@ const InfoCellProjects = ({ props }) => {
 
       <div className='infoOuterContainer'>
         <div className='photoContainer'>
-          <a id='image2container' href='https://pulsepolls.herokuapp.com/' target="_blank">
+          <a id='image2container' href='https://pulse-g8wh.onrender.com/' target="_blank">
             <img id='highlightImage2' src={pulse}/>
           </a>
         </div>
         <div className='textContainer'>
           <div className='cellTitleText'>
-          <a href='https://pulsepolls.herokuapp.com/' target="_blank">
+          <a href='https://pulse-g8wh.onrender.com/' target="_blank">
               Pulse
             </a>
             <div className='fillLineHorizontal'></div>
