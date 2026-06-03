@@ -23,12 +23,12 @@ const Intro = () => {
           <img id='circuitHorse' src={circuitHorse} width='150px'/>
           <div className='contentDiv'>
             <div id='titleName'>JON HALQUIST</div>
-            <div id='subName'>Software Engineer & Design</div>
+            <div id='subName'>Software Engineer | Interactive Design</div>
           </div>
         </div>
       </div>
       <div className='contentDiv2'>
-        <div id='subName2'>The most wonderful feeling I have ever known is the sharp glow of anxious joy as one of my creations spreads its wings and takes flight into the world.</div>
+        <div id='subName2'>Bringing curiosity and craft to every project, from production web applications to experimental hardware and generative art.</div>
       </div>
       <Element id='aboutScroll' name='aboutScroll'>
         <InfoCellLeft props={AboutMe}/>
