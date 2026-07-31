@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import CarouselChevron from './CarouselChevron';
+import CarouselSlideTrack from './CarouselSlideTrack';
 import WorkCarouselCard from './WorkCarouselCard';
 import './WorkCarousel.css';
 
 const WorkCarousel = ({ title, items }) => {
   const [cardIndex, setCardIndex] = useState(0);
-  const safeIndex = Math.min(cardIndex, Math.max(items.length - 1, 0));
   const hasMultiple = items.length > 1;
-  const currentItem = items[safeIndex];
+  const safeIndex = Math.min(cardIndex, Math.max(items.length - 1, 0));
 
   if (!items.length) {
     return null;
@@ -24,25 +23,16 @@ const WorkCarousel = ({ title, items }) => {
         )}
       </div>
 
-      <div className="workCarouselTrack">
-        <CarouselChevron
-          direction="left"
-          size="outer"
-          hidden={!hasMultiple || safeIndex === 0}
-          onClick={() => setCardIndex((i) => Math.max(0, i - 1))}
-          ariaLabel={`Previous ${title} project`}
-        />
-
-        <WorkCarouselCard item={currentItem} cardKey={currentItem.id} />
-
-        <CarouselChevron
-          direction="right"
-          size="outer"
-          hidden={!hasMultiple || safeIndex === items.length - 1}
-          onClick={() => setCardIndex((i) => Math.min(items.length - 1, i + 1))}
-          ariaLabel={`Next ${title} project`}
-        />
-      </div>
+      <CarouselSlideTrack
+        className="workCarouselBleed"
+        chevronSize="outer"
+        ariaLabelPrefix={`${title} project`}
+        onIndexChange={setCardIndex}
+        slides={items.map((item) => ({
+          key: item.id,
+          node: <WorkCarouselCard item={item} />,
+        }))}
+      />
     </div>
   );
 };

@@ -20,8 +20,8 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8em;
   font-weight: 400;
-  color: var(--color-accent, #00e5ff);
-  filter: drop-shadow(0 0 3px #00e5ff);
+  color:  #ff3086 !important;
+  filter: drop-shadow(0 0 3px #ff34cc);
 }
 
 .workCarouselCounter {
@@ -29,24 +29,17 @@
   color: var(--color-text-muted, rgba(255, 255, 255, 0.6));
 }
 
-.workCarouselTrack {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.workCarouselBleed {
   width: 100%;
 }
 
-@media screen and (max-width: 600px) {
-  .workCarouselTrack {
-    gap: 4px;
+@media (max-width: 950px) {
+  .workCarouselBleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
 
-  .carouselChevronOuter {
-    width: 36px;
-    height: 36px;
-  }
-
-  .workCarouselCard {
-    padding: 16px;
+  .workCarouselBleed.carouselSlideTrackOuter {
+    position: relative;
   }
 }

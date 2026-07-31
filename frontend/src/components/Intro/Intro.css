@@ -116,6 +116,12 @@
 }
 
 
+@media screen and (max-width: 950px) {
+  #topContainer {
+    min-width: 0;
+  }
+}
+
 @media screen and (orientation: portrait) {
   #topContainer {
     flex-direction: column;

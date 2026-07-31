@@ -30,12 +30,20 @@
 .carouselChevron:hover:not(.carouselChevronHidden) {
   background: rgba(0, 229, 255, 0.85);
   color: #000;
+}
+
+.carouselChevronOuter:hover:not(.carouselChevronHidden) {
+  transform: scale(1.08);
+}
+
+.carouselChevronInner:hover:not(.carouselChevronHidden) {
   transform: scale(1.08);
 }
 
 .carouselChevronHidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .carouselChevronOuter.carouselChevronLeft {

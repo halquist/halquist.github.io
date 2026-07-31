@@ -1,15 +1,28 @@
 .workCarouselCard {
-  flex: 1;
-  min-width: 0;
-  max-width: 700px;
+  width: 100%;
   padding: 24px;
   border: 1px solid rgba(0, 229, 255, 0.35);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.workCarouselCardContent {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
+}
+
+.workCarouselCardMedia {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .workCarouselCardHeader {
@@ -18,15 +31,20 @@
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  background-color: var(--color-accent, #00e5ff);
+  filter: drop-shadow(0 0 3px #00e5ff);
+  width: 100%;
+  padding: 8px;
 }
 
 .workCarouselCardTitle {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6em;
-  font-weight: 400;
-  color: var(--color-accent, #00e5ff);
-  filter: drop-shadow(0 0 3px #00e5ff);
+  font-weight: 550;
+  color: black;
+  filter: drop-shadow(0 0 2px black);
+  word-break: break-word;
 }
 
 .workCarouselCardLink {
@@ -63,4 +81,37 @@
   border: 1px solid rgba(0, 229, 255, 0.3);
   border-radius: 12px;
   color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 951px) {
+  .workCarouselCard {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    max-width: none;
+    min-height: 320px;
+  }
+
+  .workCarouselCardContent {
+    flex: 1;
+  }
+
+  .workCarouselCardMedia {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 950px) {
+  .workCarouselCard {
+    max-width: none;
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 20px 16px;
+  }
 }

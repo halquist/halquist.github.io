@@ -19,7 +19,7 @@ export const WORK_ITEMS = [
       'Audiohaze is a Retrowave themed clone of SoundCloud. Users can browse original Synthwave, Darkwave, and Chillwave music uploaded by other users, participate in discussions about songs, and upload their own music.',
     ],
     tags: ['React', 'Redux', 'Node.js', 'PostgreSQL', 'AWS S3'],
-    images: [audiohaze],
+    images: [audiohaze, pulse],
     link: 'https://audiohaze.onrender.com/',
   },
   {
