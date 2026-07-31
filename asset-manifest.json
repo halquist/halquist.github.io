@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.dec39610.css",
-    "main.js": "/static/js/main.4a482a32.js",
-    "static/media/me_headshot.png": "/static/media/me_headshot.aec9bed50e2b13e3b9d9.png",
+    "main.css": "/static/css/main.bd8c4793.css",
+    "main.js": "/static/js/main.47dd6022.js",
+    "static/css/98.afc9e189.chunk.css": "/static/css/98.afc9e189.chunk.css",
+    "static/js/98.12f90ddf.chunk.js": "/static/js/98.12f90ddf.chunk.js",
+    "static/media/me_headshot.png": "/static/media/me_headshot.c4f5b69206cb0509f7f5.png",
     "static/media/audiohaze.png": "/static/media/audiohaze.8552ce2f1a3caf416b9d.png",
     "static/media/pulse_image.png": "/static/media/pulse_image.104c4ba2a83533ffae2e.png",
     "static/media/oraql.png": "/static/media/oraql.ecf53951ef222794ff1c.png",
@@ -11,12 +13,17 @@
     "static/media/github.svg": "/static/media/github.fc52522eed385f05339e44e44fdd4b5e.svg",
     "static/media/background_trees.svg": "/static/media/background_trees.ad5708e43de0ba6133d2.svg",
     "index.html": "/index.html",
+    "static/media/placeholder-hardware.svg": "/static/media/placeholder-hardware.a627a7065dfa4a71841112cd77635c0d.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.3411ed82ad040bce5b6899be0d6b6d61.svg",
-    "main.dec39610.css.map": "/static/css/main.dec39610.css.map",
-    "main.4a482a32.js.map": "/static/js/main.4a482a32.js.map"
+    "static/media/placeholder-software.svg": "/static/media/placeholder-software.47350c85e414054843e94edd44cec3b0.svg",
+    "static/media/placeholder-art.svg": "/static/media/placeholder-art.ddbafc70cf0380d63e2535b0a30249c0.svg",
+    "main.bd8c4793.css.map": "/static/css/main.bd8c4793.css.map",
+    "main.47dd6022.js.map": "/static/js/main.47dd6022.js.map",
+    "98.afc9e189.chunk.css.map": "/static/css/98.afc9e189.chunk.css.map",
+    "98.12f90ddf.chunk.js.map": "/static/js/98.12f90ddf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dec39610.css",
-    "static/js/main.4a482a32.js"
+    "static/css/main.bd8c4793.css",
+    "static/js/main.47dd6022.js"
   ]
 }
