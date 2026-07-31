@@ -1,5 +1,4 @@
 import './InfoCell.css';
-import LogoSmall from '../Intro/LogoSmall';
 
 // props should pass an object with a title entry, a content entry which is an array of paragraphs
 // and one or 2 images, which are linked to the image in the object file
@@ -8,7 +7,7 @@ const InfoCellLeft = ({ props }) => {
   return(
     <div className='infoOuterContainer'>
       <div className='photoContainer'>
-        <img id='meHeadshot' src={props.image1} width='290px'/>
+        <img id='meHeadshot' src={props.image || props.image1} width='290px' alt="Jon Halquist"/>
       </div>
       <div className='textContainer'>
         <div className='cellTitleText'>

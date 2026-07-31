@@ -21,7 +21,7 @@
   /* min-width: 350px; */
   /* padding-left: calc(100vw - 100%); */
   width: 80vw;
-  max-width: 925px;
+  max-width: 1200px;
   min-width: 450px;
 }
 
@@ -29,6 +29,7 @@
   display: flex;
   /* flex-direction: column; */
   align-items: flex-start;
+  justify-content: center;
   width: 100%;
   min-width: 350px;
 }
@@ -97,6 +98,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   margin-top: 5px;
+  text-align: center;
   /* animation: blur_in 1s ease-in-out; */
 
 }
@@ -132,6 +134,10 @@
   #subName {
     text-align: left;
     font-size: 2em;
+  }
+  #subName2 {
+    text-align: left;
+    font-size: 1.3em;
   }
   /* #topContainer {
     flex-direction: column;

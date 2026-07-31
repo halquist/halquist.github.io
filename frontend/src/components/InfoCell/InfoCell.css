@@ -115,20 +115,36 @@
 
 
 
-.skillTable {
-  /* display: flex; */
+.skillsGrouped {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+}
+
+.skillGroupTitle {
+  margin: 0 0 6px;
+  color: var(--color-accent, #00e5ff);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  font-weight: 400;
+  filter: drop-shadow(0 0 3px #00e5ff);
+}
+
+.skillGroupList {
+  display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
-  min-width: 150px;
+  gap: 6px;
 }
 
-
-.skillTable, tr, td {
+.skillChip {
+  font-size: 0.85em;
   padding: 4px 10px;
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 12px;
   color: #ffffff;
-  font-size: 1.05em;
-  /* border: 1px solid; */
 }
+
 
 #highlightImage2 {
   border-radius: 6px;

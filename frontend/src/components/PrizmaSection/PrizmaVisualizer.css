@@ -1,0 +1,17 @@
+.prizmaVisualizerPlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.prizmaPlaceholderText {
+  color: rgba(0, 229, 255, 0.5);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+}

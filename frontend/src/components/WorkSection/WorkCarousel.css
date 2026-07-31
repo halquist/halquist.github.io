@@ -1,0 +1,52 @@
+.workCarousel {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.workCarousel:last-child {
+  margin-bottom: 0;
+}
+
+.workCarouselHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+.workCarouselTitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  color: var(--color-accent, #00e5ff);
+  filter: drop-shadow(0 0 3px #00e5ff);
+}
+
+.workCarouselCounter {
+  font-size: 0.9em;
+  color: var(--color-text-muted, rgba(255, 255, 255, 0.6));
+}
+
+.workCarouselTrack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .workCarouselTrack {
+    gap: 4px;
+  }
+
+  .carouselChevronOuter {
+    width: 36px;
+    height: 36px;
+  }
+
+  .workCarouselCard {
+    padding: 16px;
+  }
+}
