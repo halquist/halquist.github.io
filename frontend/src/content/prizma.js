@@ -1,8 +1,8 @@
 export const prizmaSection = {
   title: 'Prizma',
   description: [
-    'Prizma is an audio-reactive visualizer that translates sound into dynamic 3D graphics—built with Three.js and Web Audio API.',
-    'An interactive exploration at the intersection of music, code, and generative visuals.',
+    'The live fractal kaleidoscope below is a slice of Prizma — an audio-reactive visualizer I built with OpenGL and GLSL, born on an ESP32 watch and refined on Raspberry Pi and desktop.',
+    'This web port runs the same Mandelbrot kaleidoscope core: wedge-buffer rendering, palette cycling, orbit-trap coloring, and soft radial tapestry fills — tuned for a small circular viewport on desktop and mobile.',
+    'Prizma also lives in hardware: the Prizma Watch wearable and LED installations explore how generative visuals can feel tactile and place-based, not just screen-based.',
   ],
-  placeholderText: 'Visualizer coming soon',
 };
