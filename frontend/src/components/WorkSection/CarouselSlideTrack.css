@@ -75,7 +75,7 @@
 }
 
 .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
-  padding: 0 28px;
+  padding: 0 0 0 28px;
 }
 
 /* Vertical image carousel: chevrons overlay, never affect layout height */

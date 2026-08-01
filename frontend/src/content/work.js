@@ -1,5 +1,8 @@
 import audiohaze from '../images/audiohaze.png';
 import pulse from '../images/pulse_image.png';
+import prizma1 from '../images/prizma_photo_1.png';
+import prizma2 from '../images/prizma_photo_2.png';
+import prizma3 from '../images/prizma_photo_3.png';
 import placeholderHardware from '../images/work/placeholder-hardware.svg';
 import placeholderArt from '../images/work/placeholder-art.svg';
 
@@ -38,13 +41,14 @@ export const WORK_ITEMS = [
   {
     id: 'prizma-watch',
     category: 'Hardware',
-    title: 'Prizma Watch',
+    title: 'Prizma Vision',
     tagline: 'LED wearable display',
     description: [
-      'A wearable LED display watch built with embedded microcontrollers, combining custom PCB design with programmable light patterns.',
+      'A wrist-worn kaleidoscopic visualizer I built from the ground up: custom 3D-modeled and printed housing for a comfortable fit, plus embedded firmware and a custom UI for easy operation.',
+      'The Prizma Vision renders vibrant, infinitely varying generative patterns in real time combining 3D design, fabrication, and low-level coding into a single wearable.',
     ],
-    tags: ['ESP32', 'LED', 'Wearables', 'PCB'],
-    images: [placeholderHardware],
+    tags: ['ESP32', 'C++', '3D Printing', 'Wearables', 'Generative Art'],
+    images: [prizma1, prizma2, prizma3],
     link: null,
   },
   {
