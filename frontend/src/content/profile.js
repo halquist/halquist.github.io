@@ -2,7 +2,7 @@ import me_headshot from '../images/me_headshot.png';
 
 export const hero = {
   name: 'JON HALQUIST',
-  tagline: 'Software Engineer | Creative Technologist',
+  tagline: 'Software Engineer & Creative Technologist',
   subtext:
     'Building compelling systems across code, hardware, and visual design from production web applications to wearables and interactive art.',
 };

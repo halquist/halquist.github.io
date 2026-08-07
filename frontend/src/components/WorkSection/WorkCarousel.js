@@ -16,11 +16,11 @@ const WorkCarousel = ({ title, items }) => {
     <div className="workCarousel">
       <div className="workCarouselHeading">
         <h3 className="workCarouselTitle">{title}</h3>
-        {hasMultiple && (
+        {/* {hasMultiple && (
           <span className="workCarouselCounter">
             {safeIndex + 1} / {items.length}
           </span>
-        )}
+        )} */}
       </div>
 
       <CarouselSlideTrack
