@@ -36,6 +36,7 @@
 @media (max-width: 950px) {
   .workCarouselTitle {
     margin: 0px;
+    text-align: center;
   }
 
   .workCarouselHeading {

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navigation.css';
 import LogoCrest from './LogoCrest';
 import * as Scroll from 'react-scroll';
+
+const SCROLL_DELTA = 8;
+const TOP_REVEAL_Y = 60;
 
 const NAV_LINKS = [
   { to: 'aboutScroll', label: 'About' },
@@ -14,6 +17,30 @@ function Navigation() {
   const ScrollLink = Scroll.Link;
   const [reloadLogo, setReloadLogo] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+
+      if (currentScrollY <= TOP_REVEAL_Y) {
+        setNavHidden(false);
+      } else if (scrollDelta > SCROLL_DELTA) {
+        setNavHidden(true);
+        setShowMenu(false);
+      } else if (scrollDelta < -SCROLL_DELTA) {
+        setNavHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const spinLogo = () => {
     setReloadLogo(false);
@@ -44,7 +71,7 @@ function Navigation() {
 
   return (
     <>
-      <div className="navBar">
+      <div className={`navBar${navHidden ? ' navBarHidden' : ''}`}>
         <div className="navContent">
           {NAV_LINKS.slice(0, 2).map((link) => renderNavLink(link))}
           <div id="logoNameDiv">
@@ -63,7 +90,7 @@ function Navigation() {
         </div>
       </div>
 
-      <div className="navBarSmall">
+      <div className={`navBarSmall${navHidden ? ' navBarHidden' : ''}`}>
         <div className="navContentSmall">
           <div id="logoMenu" onClick={() => setShowMenu((prev) => !prev)}>
             {reloadLogo && <LogoCrest />}

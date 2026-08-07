@@ -134,9 +134,9 @@
     right: 8px;
   }
 
-  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevron:hover:not(.carouselChevronHidden) {
+  /* .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevron:hover:not(.carouselChevronHidden) {
     transform: translateY(-50%) scale(1.08);
-  }
+  } */
 
   .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
     padding: 0px;

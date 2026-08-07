@@ -126,22 +126,34 @@ vec2 screenRotFromUv(vec2 uv) {
               u_rotSin * rel.x + u_rotCos * rel.y);
 }
 
-vec3 applyTapestryCompose(vec2 uv, vec3 color) {
+vec3 applyTapestryComposeForStyle(vec2 uv, vec3 color, int style) {
+  if (style <= 0) return color;
+
+  float maxR = maxUvRadius();
+  vec2 rot = screenRotFromUv(uv);
+
+  if (length(uv) > maxR) {
+    return tapestryFill(rot, style);
+  }
+
   vec3 comp = color;
-  if (tapestryActive()) {
-    float maxR = maxUvRadius();
-    vec2 rot = screenRotFromUv(uv);
-    if (length(uv) > maxR) {
-      comp = tapestryFill(rot, u_tapestryStyleTo);
-    } else {
-      float dark = smoothstep(TAPESTRY_DARK_LUMA_HI, TAPESTRY_DARK_LUMA_LO, tapestryLuma(comp));
-      if (dark > 0.001) {
-        vec3 fill = tapestryFill(rot, u_tapestryStyleTo);
-        comp = mix(comp, fill, dark);
-      }
-    }
+  float dark = smoothstep(TAPESTRY_DARK_LUMA_HI, TAPESTRY_DARK_LUMA_LO, tapestryLuma(comp));
+  if (dark > 0.001) {
+    vec3 fill = tapestryFill(rot, style);
+    comp = mix(comp, fill, dark);
   }
   return comp;
+}
+
+vec3 applyTapestryCompose(vec2 uv, vec3 color) {
+  if (!tapestryActive()) return color;
+  if (u_tapestryStyleFrom == u_tapestryStyleTo && u_tapestryStyleBlend >= 0.999) {
+    return applyTapestryComposeForStyle(uv, color, u_tapestryStyleTo);
+  }
+
+  vec3 colorFrom = applyTapestryComposeForStyle(uv, color, u_tapestryStyleFrom);
+  vec3 colorTo = applyTapestryComposeForStyle(uv, color, u_tapestryStyleTo);
+  return mix(colorFrom, colorTo, tapestryBlendT());
 }
 
 void main() {

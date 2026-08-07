@@ -2,10 +2,22 @@ export const TAPESTRY_GLSL = `
 uniform int u_tapestryStyleFrom;
 uniform int u_tapestryStyleTo;
 uniform float u_tapestryStyleBlend;
+uniform float u_symmetryTime;
 uniform sampler2D u_tapestryPalette;
 
 const float TAPESTRY_PALETTE_SPAN = 0.92;
 const float TAPESTRY_MIN_BANDS = 0.5;
+const float TAPESTRY_MAX_BANDS = 1.0;
+const float TAPESTRY_RIPPLE_ANG = 0.05;
+const float TAPESTRY_RIPPLE_ANG_FREQ = 2.0;
+const float TAPESTRY_RIPPLE_RAD = 0.03;
+const float TAPESTRY_RIPPLE_RAD_FREQ = 2.0;
+const float TAPESTRY_PULSE_WASH_RATE = 0.35;
+const float TAPESTRY_PULSE_WASH_OFFSET = 0.08;
+const float TAPESTRY_PULSE_WASH_SPAN = 0.45;
+const float TAPESTRY_SOFT_WASH_TIME_RATE = 0.2;
+const float TAPESTRY_SOFT_WASH_TIME_AMP = 0.06;
+const float TAPESTRY_SOFT_WASH_CENTER = 0.04;
 const float TAPESTRY_DARK_LUMA_HI = 0.12;
 const float TAPESTRY_DARK_LUMA_LO = 0.0;
 
@@ -27,29 +39,56 @@ bool tapestryActive() {
 
 float tapestryRadialT(vec2 rot, int style) {
   float maxR = tapestryMaxR();
-  return clamp(length(rot) / max(maxR, 0.001), 0.0, 1.0);
+  float t = clamp(length(rot) / max(maxR, 0.001), 0.0, 1.0);
+  if (style == 2) {
+    float ang = atan(rot.y, rot.x);
+    t += TAPESTRY_RIPPLE_ANG * sin(TAPESTRY_RIPPLE_ANG_FREQ * ang);
+    t += TAPESTRY_RIPPLE_RAD * sin(TAPESTRY_RIPPLE_RAD_FREQ * t * 6.28318530718);
+    t = clamp(t, 0.0, 1.0);
+  }
+  return t;
+}
+
+float tapestryBandCycles(vec2 rot, int style) {
+  if (style <= 1) return TAPESTRY_MIN_BANDS;
+  if (style != 2) return TAPESTRY_MIN_BANDS;
+
+  float maxR = tapestryMaxR();
+  float t = clamp(length(rot) / max(maxR, 0.001), 0.0, 1.0);
+  float ang = atan(rot.y, rot.x);
+  float angWave = 0.5 + 0.5 * sin(TAPESTRY_RIPPLE_ANG_FREQ * ang);
+  float radWave = 0.5 + 0.5 * sin(TAPESTRY_RIPPLE_RAD_FREQ * t * 6.28318530718);
+  float activity = clamp(0.45 * t + 0.275 * angWave + 0.275 * radWave, 0.0, 1.0);
+  return mix(TAPESTRY_MIN_BANDS, TAPESTRY_MAX_BANDS, activity);
 }
 
 float tapestryPaletteT(vec2 rot, int style) {
+  float maxR = tapestryMaxR();
+  float r = clamp(length(rot) / max(maxR, 0.001), 0.0, 1.0);
+
+  if (style == 4) {
+    return u_paletteOffset + r * TAPESTRY_PULSE_WASH_SPAN +
+           TAPESTRY_PULSE_WASH_OFFSET * sin(u_symmetryTime * TAPESTRY_PULSE_WASH_RATE);
+  }
+  if (style == 5) {
+    return u_paletteOffset + TAPESTRY_SOFT_WASH_TIME_AMP * sin(u_symmetryTime * TAPESTRY_SOFT_WASH_TIME_RATE) +
+           TAPESTRY_SOFT_WASH_CENTER * (1.0 - r);
+  }
+
   float t = tapestryRadialT(rot, style);
-  return u_paletteOffset + t * TAPESTRY_PALETTE_SPAN * TAPESTRY_MIN_BANDS;
+  float cycles = tapestryBandCycles(rot, style);
+  return u_paletteOffset + t * TAPESTRY_PALETTE_SPAN * cycles;
 }
 
 vec3 tapestryFill(vec2 rot, int style) {
-  vec3 fill = vec3(0.0);
-  if (style > 0) {
-    float paletteT = fract(tapestryPaletteT(rot, style));
-    fill = texture2D(u_tapestryPalette, vec2(paletteT, 0.5)).rgb;
-  }
-  return fill;
+  if (style <= 0) return vec3(0.0);
+  float paletteT = fract(tapestryPaletteT(rot, style));
+  return texture2D(u_tapestryPalette, vec2(paletteT, 0.5)).rgb;
 }
 
 vec3 tapestryInteriorForStyle(vec2 rot, int style) {
-  vec3 interior = vec3(0.0);
-  if (style > 0) {
-    interior = tapestryFill(rot, style);
-  }
-  return interior;
+  if (style <= 0) return vec3(0.0);
+  return tapestryFill(rot, style);
 }
 `;
 
@@ -237,7 +276,12 @@ vec3 colorForModeTapestry(float tapestryStyle, float mode, vec2 p, vec2 rot, Fra
 }
 
 vec3 colorForMode(float mode, vec2 p, vec2 rot, FractalIter it) {
-  return colorForModeTapestry(float(u_tapestryStyleTo), mode, p, rot, it);
+  if (u_tapestryStyleFrom == u_tapestryStyleTo || u_tapestryStyleBlend >= 0.999) {
+    return colorForModeTapestry(float(u_tapestryStyleTo), mode, p, rot, it);
+  }
+  vec3 colorFrom = colorForModeTapestry(float(u_tapestryStyleFrom), mode, p, rot, it);
+  vec3 colorTo = colorForModeTapestry(float(u_tapestryStyleTo), mode, p, rot, it);
+  return mix(colorFrom, colorTo, tapestryBlendT());
 }
 
 vec2 rotFromUv(vec2 uv, vec2 pivot) {

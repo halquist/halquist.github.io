@@ -91,6 +91,7 @@ export function createPrizmaEngine(canvas, options = {}) {
     u_tapestryStyleFrom: { value: 1 },
     u_tapestryStyleTo: { value: 1 },
     u_tapestryStyleBlend: { value: 1 },
+    u_symmetryTime: { value: 0 },
     u_tapestryPalette: { value: tapestryTexture },
   };
 
@@ -107,6 +108,7 @@ export function createPrizmaEngine(canvas, options = {}) {
     u_tapestryStyleFrom: { value: 1 },
     u_tapestryStyleTo: { value: 1 },
     u_tapestryStyleBlend: { value: 1 },
+    u_symmetryTime: { value: 0 },
     u_tapestryPalette: { value: tapestryTexture },
   };
 
@@ -173,12 +175,20 @@ export function createPrizmaEngine(canvas, options = {}) {
     wedgeUniforms.u_colorModeFrom.value = params.colorModeFrom;
     wedgeUniforms.u_colorModeTo.value = params.colorModeTo;
     wedgeUniforms.u_colorModeBlend.value = params.colorModeBlend;
+    wedgeUniforms.u_tapestryStyleFrom.value = params.tapestryStyleFrom;
+    wedgeUniforms.u_tapestryStyleTo.value = params.tapestryStyleTo;
+    wedgeUniforms.u_tapestryStyleBlend.value = params.tapestryStyleBlend;
+    wedgeUniforms.u_symmetryTime.value = params.symmetryTime;
 
     composeUniforms.u_pivot.value.set(params.pivot.x, params.pivot.y);
     composeUniforms.u_rotCos.value = params.rotCos;
     composeUniforms.u_rotSin.value = params.rotSin;
     composeUniforms.u_paletteOffset.value = palette.paletteOffset;
     composeUniforms.u_paletteSpacing.value = palette.paletteSpacing;
+    composeUniforms.u_tapestryStyleFrom.value = params.tapestryStyleFrom;
+    composeUniforms.u_tapestryStyleTo.value = params.tapestryStyleTo;
+    composeUniforms.u_tapestryStyleBlend.value = params.tapestryStyleBlend;
+    composeUniforms.u_symmetryTime.value = params.symmetryTime;
   }
 
   function updateTextures() {

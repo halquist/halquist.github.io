@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-.workCarouselCardContent {
+.workCarouselCardMeta {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -85,22 +85,31 @@
 
 @media (min-width: 951px) {
   .workCarouselCard {
-    flex-direction: row;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'meta media'
+      'desc media';
+    align-items: start;
     gap: 24px;
     max-width: none;
     min-height: 320px;
   }
 
-  .workCarouselCardContent {
-    flex: 1;
+  .workCarouselCardMeta {
+    grid-area: meta;
+  }
+
+  .workCarouselCardDescription {
+    grid-area: desc;
   }
 
   .workCarouselCardMedia {
-    flex: 1;
+    grid-area: media;
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
     min-height: 0;
   }
 }
