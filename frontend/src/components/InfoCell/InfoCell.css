@@ -15,12 +15,14 @@
 
 .infoOuterContainerRight {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  box-sizing: border-box;
   /* border: 2px solid #42484D; */
   border-radius: 20px;
   /* background-color: rgba(0, 0, 0, 0.2); */
@@ -41,6 +43,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .photoContainer {
@@ -115,15 +119,21 @@
 .cellContentContainer {
   display: flex;
   gap: 20px;
+  width: 100%;
+  min-width: 0;
 }
 
-
+.cellContent {
+  min-width: 0;
+  flex: 1 1 auto;
+}
 
 .skillsGrouped {
   display: flex;
   flex-direction: column;
   gap: 16px;
   max-width: 420px;
+  width: 100%;
 }
 
 .skillGroupTitle {
@@ -139,6 +149,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  min-width: 0;
 }
 
 .skillChip {
@@ -188,6 +199,43 @@
   margin-top: 5px;
   text-align: center;
   margin-bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .infoOuterContainer,
+  .infoOuterContainerRight {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .textContainer {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .cellContentContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cellContentContainer .fillLineVertical {
+    display: none;
+  }
+
+  .skillsGrouped {
+    max-width: 100%;
+  }
+
+  .cellTitleText {
+    font-size: 1.65em;
+  }
+
+  .slotContainer {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (orientation: portrait) {

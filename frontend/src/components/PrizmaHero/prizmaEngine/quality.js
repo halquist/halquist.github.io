@@ -2,8 +2,8 @@ const MIN_ITER = 32;
 const MAX_ITER_DESKTOP = 384;
 const MAX_ITER_MOBILE = 256;
 const DEEP_ZOOM_ITER_CAP = 512;
-const DEEP_ZOOM_ITER_TAPER_START = 0.55;
-const ITER_ZOOM_CURVE = 2.4;
+const DEEP_ZOOM_ITER_TAPER_START = 0.4;
+const ITER_ZOOM_CURVE = 1.5;
 const MIN_ZOOM = 1.0;
 const MAX_ZOOM = 9.8;
 
@@ -36,9 +36,17 @@ export function zoomFactorFor(zoomExponent) {
 export function getDeviceCaps(isMobile) {
   return {
     dprCap: isMobile ? 1.5 : 2.0,
-    renderCap: isMobile ? 320 : 512,
+    renderCap: isMobile ? 512 : 1024,
+    renderSupersample: isMobile ? 1.5 : 2.0,
     qualityScale: isMobile ? 0.85 : 1.0,
   };
+}
+
+export function computeRenderSize(containerSize, dpr, deviceCaps, qualityScale = 1) {
+  const cappedDpr = Math.min(deviceCaps.dprCap, dpr || 1);
+  const supersample = 1 + (deviceCaps.renderSupersample - 1) * qualityScale;
+  const size = Math.floor(containerSize * cappedDpr * supersample);
+  return Math.max(180, Math.min(deviceCaps.renderCap, size));
 }
 
 export function createQualityTracker() {

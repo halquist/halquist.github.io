@@ -12,6 +12,7 @@ import {
   iterationCapForZoom,
   zoomFactorFor,
   getDeviceCaps,
+  computeRenderSize,
 } from './quality';
 
 const WEDGE_ANGULAR_SCALE = 2;
@@ -42,7 +43,7 @@ function computeSizes(renderSize) {
 export function createPrizmaEngine(canvas, options = {}) {
   const isMobile = options.isMobile ?? window.innerWidth <= 768;
   const deviceCaps = getDeviceCaps(isMobile);
-  const animation = createAnimationState();
+  const animation = createAnimationState(isMobile);
   const palette = createPaletteState();
   const quality = createQualityTracker();
 
@@ -141,11 +142,13 @@ export function createPrizmaEngine(canvas, options = {}) {
   let lastTime = performance.now();
   let renderSize = 290;
   let sizes = computeSizes(renderSize);
+  let containerSize = 290;
+  let containerDpr = 1;
 
-  function resize(containerWidth, containerHeight, dpr) {
-    const cappedDpr = Math.min(deviceCaps.dprCap, dpr || 1);
-    const base = Math.min(containerWidth, containerHeight);
-    renderSize = Math.max(180, Math.min(deviceCaps.renderCap, Math.floor(base * cappedDpr)));
+  function applyRenderSize(newRenderSize) {
+    if (newRenderSize === renderSize) return false;
+
+    renderSize = newRenderSize;
     sizes = computeSizes(renderSize);
 
     renderer.setPixelRatio(1);
@@ -154,8 +157,31 @@ export function createPrizmaEngine(canvas, options = {}) {
     wedgeTarget.setSize(sizes.wedgeW, sizes.wedgeH);
     wedgeUniforms.u_fboSize.value.set(sizes.wedgeW, sizes.wedgeH);
     composeUniforms.u_fboSize.value.set(renderSize, renderSize);
+    return true;
+  }
+
+  function resize(containerWidth, containerHeight, dpr, qualityScale = quality.getQualityScale()) {
+    containerSize = Math.min(containerWidth, containerHeight);
+    containerDpr = dpr || 1;
+    const newRenderSize = computeRenderSize(
+      containerSize,
+      containerDpr,
+      deviceCaps,
+      qualityScale * deviceCaps.qualityScale,
+    );
+    applyRenderSize(newRenderSize);
     composeUniforms.u_aspectRatio.value = 1;
     wedgeUniforms.u_aspectRatio.value = 1;
+  }
+
+  function syncRenderResolution() {
+    const newRenderSize = computeRenderSize(
+      containerSize,
+      containerDpr,
+      deviceCaps,
+      quality.getQualityScale() * deviceCaps.qualityScale,
+    );
+    applyRenderSize(newRenderSize);
   }
 
   function syncUniforms(params) {
@@ -224,12 +250,13 @@ export function createPrizmaEngine(canvas, options = {}) {
     lastTime = now;
 
     const motionScale = animation.reducedMotion ? 0.05 : 1;
-    updateAnimation(animation, palette, dt, motionScale);
+    updateAnimation(animation, palette, dt, motionScale, quality.getQualityScale());
     updatePalette(palette, animation.zoomExponent, dt, motionScale);
 
     const frameStart = performance.now();
     renderFrame();
     quality.onFrame(performance.now() - frameStart, isMobile);
+    syncRenderResolution();
   }
 
   return {

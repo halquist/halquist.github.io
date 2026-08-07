@@ -9,8 +9,8 @@ const TOP_REVEAL_Y = 60;
 const NAV_LINKS = [
   { to: 'aboutScroll', label: 'About' },
   { to: 'workScroll', label: 'Work' },
-  { to: 'prizmaScroll', label: 'Prizma' },
   { to: 'skillsScroll', label: 'Skills' },
+  { to: 'prizmaScroll', label: 'Prizma' },
 ];
 
 function Navigation() {

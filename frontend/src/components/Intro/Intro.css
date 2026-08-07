@@ -116,6 +116,16 @@
 }
 
 
+@media screen and (max-width: 768px) {
+  #topContainer {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+}
+
 @media screen and (max-width: 950px) {
   #topContainer {
     min-width: 0;
@@ -170,7 +180,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding-top: 100px; */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
   z-index: 2;
 }
 

@@ -306,3 +306,19 @@
   }
 
 }
+
+@media screen and (max-width: 768px) {
+  #slotMachineContainer {
+    max-width: 100%;
+    padding: 14px;
+  }
+
+  .bpmValueDisplaySpinner {
+    width: 86px;
+    height: 108px;
+  }
+
+  .spinnerHighlight {
+    width: 80px;
+  }
+}

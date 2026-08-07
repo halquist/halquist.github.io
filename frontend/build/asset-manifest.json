@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e32f11ce.css",
-    "main.js": "/static/js/main.b5d1ae94.js",
+    "main.css": "/static/css/main.2258f8a4.css",
+    "main.js": "/static/js/main.8a20fd03.js",
     "static/media/prizma_photo_1.png": "/static/media/prizma_photo_1.abc4a754102c7cf0264d.png",
     "static/media/lamplight_photo_1.png": "/static/media/lamplight_photo_1.5bbd387cf1183f112923.png",
     "static/media/lamplight_photo_2.png": "/static/media/lamplight_photo_2.30a98ab5ac5eac953180.png",
@@ -22,11 +22,11 @@
     "static/media/placeholder-hardware.svg": "/static/media/placeholder-hardware.a627a7065dfa4a71841112cd77635c0d.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.3411ed82ad040bce5b6899be0d6b6d61.svg",
     "static/media/placeholder-art.svg": "/static/media/placeholder-art.ddbafc70cf0380d63e2535b0a30249c0.svg",
-    "main.e32f11ce.css.map": "/static/css/main.e32f11ce.css.map",
-    "main.b5d1ae94.js.map": "/static/js/main.b5d1ae94.js.map"
+    "main.2258f8a4.css.map": "/static/css/main.2258f8a4.css.map",
+    "main.8a20fd03.js.map": "/static/js/main.8a20fd03.js.map"
   },
   "entrypoints": [
-    "static/css/main.e32f11ce.css",
-    "static/js/main.b5d1ae94.js"
+    "static/css/main.2258f8a4.css",
+    "static/js/main.8a20fd03.js"
   ]
 }

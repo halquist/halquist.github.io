@@ -23,6 +23,10 @@ export const skillGroups = [
       'Poster Design',
       'Digital Art',
       'Fine Art',
+      '3d Modeling',
+      '3d Printing',
+      'Blender',
+      'Autodesk Fusion'
     ],
   },
   {
@@ -31,13 +35,12 @@ export const skillGroups = [
       'Arduino / ESP32',
       'LED Control',
       'Embedded C++',
-      'PCB Design',
       'Wearables',
     ],
   },
   {
     domain: 'Other',
-    skills: ['Git', 'Python', 'Generative Art', 'Three.js', 'Flask', 'Sequelize'],
+    skills: ['Git', 'Python', 'Three.js', 'Flask', 'Sequelize'],
   },
 ];
 

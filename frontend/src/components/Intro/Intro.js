@@ -24,14 +24,21 @@ const Intro = () => {
         <div id="subName2">{hero.subtext}</div>
       </div>
 
+
+      <Element id="workScroll" name="workScroll">
+        <WorkSection />
+      </Element>
+
+      <div className="spacerDiv"></div>
+      
       <Element id="aboutScroll" name="aboutScroll">
         <InfoCellLeft props={about} />
       </Element>
 
       <div className="spacerDiv"></div>
 
-      <Element id="workScroll" name="workScroll">
-        <WorkSection />
+      <Element id="skillsScroll" name="skillsScroll">
+        <InfoCellRight props={skillsSection} />
       </Element>
 
       <div className="spacerDiv"></div>
@@ -39,10 +46,6 @@ const Intro = () => {
       <PrizmaSection />
 
       <div className="spacerDiv"></div>
-
-      <Element id="skillsScroll" name="skillsScroll">
-        <InfoCellRight props={skillsSection} />
-      </Element>
     </div>
   );
 };
