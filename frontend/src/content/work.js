@@ -7,6 +7,7 @@ import lamplight1 from '../images/lamplight_photo_1.png';
 import lamplight2 from '../images/lamplight_photo_2.png';
 import lamplight3 from '../images/lamplight_photo_3.png';
 import lamplight4 from '../images/lamplight_photo_4.png';
+import lamplight5 from '../images/lamplight_photo_5.png';
 import chrono1 from '../images/chronospore_photo_1.png';
 import chrono2 from '../images/chronospore_photo_2.png';
 import chrono3 from '../images/chronospore_photo_3.png';
@@ -68,7 +69,7 @@ export const WORK_ITEMS = [
       'Deploys its own WiFi network and serves a captive-portal web app with no install required so people nearby can post and read place-based messages, with basic moderation behind login.',
     ],
     tags: ['ESP32', '3D Printing', 'Fusion 360', 'IoT', 'Embedded Web'],
-    images: [lamplight3, lamplight1, lamplight2, lamplight4],
+    images: [lamplight5, lamplight2, lamplight1, lamplight3, lamplight4],
     link: null,
   },
   {
