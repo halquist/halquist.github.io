@@ -3,6 +3,7 @@ import pulse from '../images/pulse_image.png';
 import prizma1 from '../images/prizma_photo_1.png';
 import prizma2 from '../images/prizma_photo_2.png';
 import prizma3 from '../images/prizma_photo_3.png';
+import prizma4 from '../images/prizma_photo_4.png';
 import lamplight1 from '../images/lamplight_photo_1.png';
 import lamplight2 from '../images/lamplight_photo_2.png';
 import lamplight3 from '../images/lamplight_photo_3.png';
@@ -11,6 +12,7 @@ import lamplight5 from '../images/lamplight_photo_5.png';
 import chrono1 from '../images/chronospore_photo_1.png';
 import chrono2 from '../images/chronospore_photo_2.png';
 import chrono3 from '../images/chronospore_photo_3.png';
+import chrono4 from '../images/chronospore_photo_4.png';
 import placeholderHardware from '../images/work/placeholder-hardware.svg';
 import placeholderArt from '../images/work/placeholder-art.svg';
 
@@ -56,7 +58,7 @@ export const WORK_ITEMS = [
       'The Prizma Vision renders vibrant, infinitely varying generative patterns in real time combining 3D design, fabrication, and low-level coding into a single wearable.',
     ],
     tags: ['ESP32', 'C++', '3D Printing', 'Wearables', 'Generative Art'],
-    images: [prizma2, prizma1, prizma3],
+    images: [prizma4, prizma2, prizma1, prizma3],
     link: null,
   },
   {
@@ -82,7 +84,7 @@ export const WORK_ITEMS = [
       'When a timer completes, the lamp gently strobes in that color. Pressing down on the lamp resets any active reminders. Custom firmware handles scheduling, the web UI, and lighting effects.',
     ],
     tags: ['ESP32', '3D Printing', 'IoT', 'Embedded Web', 'LED'],
-    images: [chrono2, chrono1, chrono3],
+    images: [chrono4, chrono2, chrono1, chrono3],
     link: null,
   },
   {
