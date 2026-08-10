@@ -1,5 +1,3 @@
-import audiohaze from '../images/audiohaze.png';
-import pulse from '../images/pulse_image.png';
 import prizma1 from '../images/prizma_photo_1.png';
 import prizma2 from '../images/prizma_photo_2.png';
 import prizma3 from '../images/prizma_photo_3.png';
@@ -13,6 +11,21 @@ import chrono1 from '../images/chronospore_photo_1.png';
 import chrono2 from '../images/chronospore_photo_2.png';
 import chrono3 from '../images/chronospore_photo_3.png';
 import chrono4 from '../images/chronospore_photo_4.png';
+import skull1 from '../images/skull_photo.png';
+import machina1 from '../images/machina_photo.png';
+import shirt1 from '../images/shirts/shirt1.png'
+import shirt2 from '../images/shirts/shirt2.png'
+import shirt3 from '../images/shirts/shirt3.png'
+import shirt4 from '../images/shirts/shirt4.png'
+import shirt5 from '../images/shirts/shirt5.png'
+import audiohaze1 from '../images/sites/audiohaze1.png'
+import audiohaze2 from '../images/sites/audiohaze2.png'
+import audiohaze3 from '../images/sites/audiohaze3.png'
+import audiohaze4 from '../images/sites/audiohaze4.png'
+import pulse1 from '../images/sites/pulse1.png'
+import pulse2 from '../images/sites/pulse2.png'
+import pulse3 from '../images/sites/pulse3.png'
+import pulse4 from '../images/sites/pulse4.png'
 import placeholderHardware from '../images/work/placeholder-hardware.svg';
 import placeholderArt from '../images/work/placeholder-art.svg';
 
@@ -32,7 +45,7 @@ export const WORK_ITEMS = [
       'Audiohaze is a Retrowave themed clone of SoundCloud. Users can browse original Synthwave, Darkwave, and Chillwave music uploaded by other users, participate in discussions about songs, and upload their own music.',
     ],
     tags: ['React', 'Redux', 'Node.js', 'PostgreSQL', 'AWS S3'],
-    images: [audiohaze, pulse],
+    images: [audiohaze1, audiohaze2, audiohaze3, audiohaze4],
     link: 'https://audiohaze.onrender.com/',
   },
   {
@@ -45,7 +58,7 @@ export const WORK_ITEMS = [
       'Voting earns bpm—the currency of Pulse—which can be spent to create polls or customize your profile in the store.',
     ],
     tags: ['React', 'Redux', 'Express', 'PostgreSQL'],
-    images: [pulse],
+    images: [pulse1, pulse3, pulse2, pulse4],
     link: 'https://pulse-g8wh.onrender.com/',
   },
   {
@@ -90,13 +103,13 @@ export const WORK_ITEMS = [
   {
     id: 'poster-design',
     category: 'Visual Arts',
-    title: 'Poster Design',
+    title: 'Graphic Design',
     tagline: 'Event and promotional graphics',
     description: [
-      'Poster designs for events, bands, and promotions—combining typography, illustration, and layout for print and digital distribution.',
+      'Designs for events, bands, websites, and promotions combining typography, illustration, and layout for print and digital distribution.',
     ],
     tags: ['Typography', 'Print Design', 'Illustration'],
-    images: [placeholderArt],
+    images: [skull1],
     link: null,
   },
   {
@@ -105,10 +118,10 @@ export const WORK_ITEMS = [
     title: 'T-Shirt & Apparel Design',
     tagline: 'Screen print and apparel graphics',
     description: [
-      'Original t-shirt and apparel designs created for screen printing, from concept through production-ready artwork.',
+      'Original t-shirt and apparel designs created for screen printing and dye-sublimation processes. From concept to artwork, formatting to proofing, printshop to storefront.',
     ],
     tags: ['Screen Print', 'Apparel', 'Graphic Design'],
-    images: [placeholderArt],
+    images: [shirt4, shirt1, shirt2, shirt5, shirt3],
     link: null,
   },
   {
@@ -120,7 +133,7 @@ export const WORK_ITEMS = [
       'A collection of digital and traditional fine art pieces exploring color, form, and visual narrative.',
     ],
     tags: ['Digital Art', 'Fine Art', 'Illustration'],
-    images: [placeholderArt],
+    images: [machina1],
     link: null,
   },
 ];

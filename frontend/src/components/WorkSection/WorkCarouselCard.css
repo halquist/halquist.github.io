@@ -18,6 +18,13 @@
   min-width: 0;
 }
 
+.workCarouselCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
 .workCarouselCardMedia {
   min-width: 0;
   width: 100%;
@@ -47,11 +54,6 @@
   word-break: break-word;
 }
 
-.workCarouselCardLink {
-  font-size: 0.9em;
-  white-space: nowrap;
-}
-
 .workCarouselCardTagline {
   margin: 0;
   color: var(--color-text-muted, rgba(255, 255, 255, 0.7));
@@ -71,8 +73,30 @@
   line-height: 1.55;
 }
 
-.workCarouselCardDescription p:last-child {
+.workCarouselCardDescription p:last-of-type {
   margin-bottom: 0;
+}
+
+.workCarouselCardVisitBtn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 229, 255, 0.6);
+  border-radius: 6px;
+  background: rgba(0, 229, 255, 0.12);
+  color: #00e5ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-decoration: none;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.35));
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.workCarouselCardVisitBtn:hover {
+  background: rgba(0, 229, 255, 0.28);
+  border-color: #00e5ff;
+  color: #ffffff;
 }
 
 .projectTag {
@@ -87,34 +111,42 @@
   .workCarouselCard {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      'meta media'
-      'desc media';
     align-items: start;
     gap: 24px;
     max-width: none;
     min-height: 320px;
   }
 
-  .workCarouselCardMeta {
-    grid-area: meta;
-  }
-
-  .workCarouselCardDescription {
-    grid-area: desc;
+  .workCarouselCardText {
+    gap: 20px;
   }
 
   .workCarouselCardMedia {
-    grid-area: media;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    align-self: center;
+    align-self: start;
     min-height: 0;
   }
 }
 
 @media (max-width: 950px) {
+  .workCarouselCardText {
+    display: contents;
+  }
+
+  .workCarouselCardMeta {
+    order: 1;
+  }
+
+  .workCarouselCardMedia {
+    order: 2;
+  }
+
+  .workCarouselCardDescription {
+    order: 3;
+  }
+
   .workCarouselCard {
     max-width: none;
     width: 100%;

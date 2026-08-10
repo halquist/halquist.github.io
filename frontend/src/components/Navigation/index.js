@@ -78,15 +78,7 @@ function Navigation() {
             <LogoCrest />
           </div>
           {NAV_LINKS.slice(2).map((link) => renderNavLink(link))}
-          <a
-            className="aboutLink"
-            id="contactLink"
-            href="mailto:jon.halquist@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact
-          </a>
+
         </div>
       </div>
 
