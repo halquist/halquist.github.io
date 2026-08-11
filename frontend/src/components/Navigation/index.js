@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Navigation.css';
 import LogoCrest from './LogoCrest';
 import * as Scroll from 'react-scroll';
@@ -81,7 +81,6 @@ function Navigation() {
             <LogoCrest />
           </div>
           {NAV_LINKS.slice(2).map((link) => renderNavLink(link))}
-
         </div>
       </div>
 
@@ -99,10 +98,12 @@ function Navigation() {
           </button>
           {showMenu && (
             <div id="menuContents">
-              {NAV_LINKS.map((link) => renderNavLink(link, link.to === 'skillsScroll' ? 'skillsLink' : 'aboutLink'))}
-              {/* <a className="aboutLink" id="contactLink" href="mailto:jon.halquist@gmail.com">
-                Contact
-              </a> */}
+              {NAV_LINKS.map((link) =>
+                renderNavLink(
+                  link,
+                  link.to === 'skillsScroll' ? 'skillsLink' : 'aboutLink'
+                )
+              )}
             </div>
           )}
         </div>

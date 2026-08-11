@@ -4,17 +4,11 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-function Root() {
-  return (
+ReactDOM.render(
+  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  );
-}
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
