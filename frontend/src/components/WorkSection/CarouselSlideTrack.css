@@ -92,7 +92,7 @@
 .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner .carouselChevronInner {
   position: absolute;
   left: 50%;
-  /* transform: translateX(-50%); */
+  transform: translateX(-50%);
   z-index: 3;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner .carouselChevronInner:hover:not(.carouselChevronHidden) {
-  /* transform: translateX(-50%) scale(1.08); */
+  transform: translateX(-50%) scale(1.08);
 }
 
 .carouselSlideTrackOuter--vertical .carouselChevronUp,
@@ -119,24 +119,8 @@
   }
 
   .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevronOuter {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    margin: 0;
+    display: none;
   }
-
-  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevronLeft {
-    left: 8px;
-  }
-
-  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevronRight {
-    right: 8px;
-  }
-
-  /* .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevron:hover:not(.carouselChevronHidden) {
-    transform: translateY(-50%) scale(1.08);
-  } */
 
   .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
     padding: 0px;

@@ -11,8 +11,6 @@ import chrono1 from '../images/chronospore_photo_1.png';
 import chrono2 from '../images/chronospore_photo_2.png';
 import chrono3 from '../images/chronospore_photo_3.png';
 import chrono4 from '../images/chronospore_photo_4.png';
-import skull1 from '../images/skull_photo.png';
-import machina1 from '../images/machina_photo.png';
 import shirt1 from '../images/shirts/shirt1.png'
 import shirt2 from '../images/shirts/shirt2.png'
 import shirt3 from '../images/shirts/shirt3.png'
@@ -26,6 +24,17 @@ import pulse1 from '../images/sites/pulse1.png'
 import pulse2 from '../images/sites/pulse2.png'
 import pulse3 from '../images/sites/pulse3.png'
 import pulse4 from '../images/sites/pulse4.png'
+import graphic1 from '../images/graphic/graphic1.png'
+import graphic2 from '../images/graphic/graphic2.png'
+import graphic3 from '../images/graphic/graphic3.png'
+import graphic5 from '../images/graphic/graphic5.png'
+import graphic6 from '../images/graphic/graphic6.png'
+import graphic7 from '../images/graphic/graphic7.png'
+import graphic8 from '../images/graphic/graphic8.png'
+import graphic9 from '../images/graphic/skull_photo.png'
+import machina1 from '../images/fine/machina_photo.png';
+import fine1 from '../images/fine/fineart1.png';
+import fine2 from '../images/fine/fineart2.png';
 import placeholderHardware from '../images/work/placeholder-hardware.svg';
 import placeholderArt from '../images/work/placeholder-art.svg';
 
@@ -109,13 +118,13 @@ export const WORK_ITEMS = [
       'Designs for events, bands, websites, and promotions combining typography, illustration, and layout for print and digital distribution.',
     ],
     tags: ['Typography', 'Print Design', 'Illustration'],
-    images: [skull1],
+    images: [graphic7, graphic6, graphic9, graphic2, graphic5, graphic8, graphic3, graphic1],
     link: null,
   },
   {
     id: 'tshirt-design',
     category: 'Visual Arts',
-    title: 'T-Shirt & Apparel Design',
+    title: 'T-Shirts & Apparel',
     tagline: 'Screen print and apparel graphics',
     description: [
       'Original t-shirt and apparel designs created for screen printing and dye-sublimation processes. From concept to artwork, formatting to proofing, printshop to storefront.',
@@ -133,7 +142,7 @@ export const WORK_ITEMS = [
       'A collection of digital and traditional fine art pieces exploring color, form, and visual narrative.',
     ],
     tags: ['Digital Art', 'Fine Art', 'Illustration'],
-    images: [machina1],
+    images: [machina1, fine2, fine1],
     link: null,
   },
 ];

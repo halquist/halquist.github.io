@@ -16,17 +16,34 @@ const WorkCarousel = ({ title, items }) => {
     <div className="workCarousel">
       <div className="workCarouselHeading">
         <h3 className="workCarouselTitle">{title}</h3>
-        {/* {hasMultiple && (
-          <span className="workCarouselCounter">
-            {safeIndex + 1} / {items.length}
-          </span>
-        )} */}
       </div>
+
+      {hasMultiple && (
+        <div
+          className="workCarouselPagination"
+          role="tablist"
+          aria-label={`${title} projects`}
+        >
+          {items.map((item, i) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              className={`workCarouselDot ${i === safeIndex ? 'workCarouselDot--active' : ''}`}
+              aria-label={`Go to project ${i + 1} of ${items.length}`}
+              aria-selected={i === safeIndex}
+              aria-current={i === safeIndex ? 'true' : undefined}
+              onClick={() => setCardIndex(i)}
+            />
+          ))}
+        </div>
+      )}
 
       <CarouselSlideTrack
         className="workCarouselBleed"
         chevronSize="outer"
         ariaLabelPrefix={`${title} project`}
+        index={cardIndex}
         onIndexChange={setCardIndex}
         slides={items.map((item) => ({
           key: item.id,

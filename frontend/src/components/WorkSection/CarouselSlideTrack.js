@@ -10,21 +10,26 @@ const CarouselSlideTrack = ({
   direction = 'horizontal',
   ariaLabelPrefix = 'Slide',
   className = '',
+  index: controlledIndex,
   onIndexChange,
 }) => {
-  const [index, setIndex] = useState(0);
+  const [internalIndex, setInternalIndex] = useState(0);
   const [slideSize, setSlideSize] = useState(null);
   const touchStart = useRef(null);
   const viewportRef = useRef(null);
   const isVertical = direction === 'vertical';
+  const isControlled = controlledIndex !== undefined;
 
   const count = slides.length;
+  const index = isControlled ? controlledIndex : internalIndex;
   const safeIndex = Math.min(index, Math.max(count - 1, 0));
   const hasMultiple = count > 1;
 
   const goTo = (nextIndex) => {
     const clamped = Math.max(0, Math.min(count - 1, nextIndex));
-    setIndex(clamped);
+    if (!isControlled) {
+      setInternalIndex(clamped);
+    }
     onIndexChange?.(clamped);
   };
 

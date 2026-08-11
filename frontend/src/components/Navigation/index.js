@@ -91,9 +91,9 @@ function Navigation() {
           {showMenu && (
             <div id="menuContents">
               {NAV_LINKS.map((link) => renderNavLink(link, link.to === 'skillsScroll' ? 'skillsLink' : 'aboutLink'))}
-              <a className="aboutLink" id="contactLink" href="mailto:jon.halquist@gmail.com">
+              {/* <a className="aboutLink" id="contactLink" href="mailto:jon.halquist@gmail.com">
                 Contact
-              </a>
+              </a> */}
             </div>
           )}
         </div>
