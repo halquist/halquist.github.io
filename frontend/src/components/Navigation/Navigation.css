@@ -373,6 +373,11 @@ color: white;
 #logoMenu {
   cursor: pointer;
   z-index: 98;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
 }
 
 #menuContents {

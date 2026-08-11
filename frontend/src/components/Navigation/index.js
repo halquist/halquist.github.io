@@ -15,7 +15,7 @@ const NAV_LINKS = [
 
 function Navigation() {
   const ScrollLink = Scroll.Link;
-  const [reloadLogo, setReloadLogo] = useState(true);
+  const [logoSpinKey, setLogoSpinKey] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
 
@@ -43,13 +43,16 @@ function Navigation() {
   }, []);
 
   const spinLogo = () => {
-    setReloadLogo(false);
-    setTimeout(() => setReloadLogo(true), 1);
+    setLogoSpinKey((prev) => prev + 1);
   };
 
   const handleNavClick = () => {
     spinLogo();
     setShowMenu(false);
+  };
+
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
   };
 
   const renderNavLink = (link, className = 'aboutLink') => (
@@ -84,10 +87,16 @@ function Navigation() {
 
       <div className={`navBarSmall${navHidden ? ' navBarHidden' : ''}`}>
         <div className="navContentSmall">
-          <div id="logoMenu" onClick={() => setShowMenu((prev) => !prev)}>
-            {reloadLogo && <LogoCrest />}
-            {!reloadLogo && <LogoCrest />}
-          </div>
+          <button
+            type="button"
+            id="logoMenu"
+            aria-expanded={showMenu}
+            aria-controls="menuContents"
+            aria-label={showMenu ? 'Close menu' : 'Open menu'}
+            onClick={toggleMenu}
+          >
+            <LogoCrest key={logoSpinKey} />
+          </button>
           {showMenu && (
             <div id="menuContents">
               {NAV_LINKS.map((link) => renderNavLink(link, link.to === 'skillsScroll' ? 'skillsLink' : 'aboutLink'))}
