@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[98],{98:function(e,n,r){r.r(n),r.d(n,{default:function(){return s}});var a=r(184),s=function(){return(0,a.jsx)("div",{className:"prizmaVisualizerPlaceholder",children:(0,a.jsx)("span",{className:"prizmaPlaceholderText",children:"Visualizer coming soon"})})}}}]);
-//# sourceMappingURL=98.12f90ddf.chunk.js.map
