@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rye&display=swap');
 
+:root {
+  --color-bg: #000000;
+  --color-accent: #00e5ff;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --glow: drop-shadow(0 0 5px #00e5ff);
+  --max-width: 925px;
+  --section-gap: 300px;
+}
+
 html {
-  /* background-color: #c800b1; */
-  /* background-color: #402967; */
-  background-color: #000000;
-  /* background-color: #2C3238; */
+  background-color: var(--color-bg);
   font-family: 'Montserrat', sans-serif;
-  /* padding: 100px 0 0; */
   background-image: url("./images/background_trees.svg");
-  /* background-position: right; */
   background-size: auto;
   background-repeat: repeat;
 }
@@ -50,7 +55,7 @@ body {
 }
 
 a {
-  color: rgb(0, 229, 255);
+  color: var(--color-accent);
   text-decoration: none;
   margin: none;
   padding: none;
@@ -58,7 +63,7 @@ a {
 
 a:visited {
   text-decoration: none;
-  color: rgb(0, 229, 255);
+  color: var(--color-accent);
 }
 
 @keyframes fade_in {

@@ -1,52 +1,53 @@
 import './Intro.css';
-// import me_headshot from '../../images/me_headshot.png';
-// import skullPCB from '../../images/skullPCB.svg';
-import circuitHorse from '../../images/circuit_horse.svg'
-// import SlotSpinner from '../SlotSpinner/SlotSpinner';
-// import IconArr from './IconArr';
-import InfoCellLeft, {InfoCellRight, InfoCellProjects} from '../InfoCell';
-
-
-import AboutMe from './ContentArrs/AboutMe';
-import Skills from './ContentArrs/Skills';
+import circuitHorse from '../../images/circuit_horse.svg';
+import InfoCellLeft from '../InfoCell/InfoCellLeft';
+import InfoCellRight from '../InfoCell/InfoCellRight';
+import WorkSection from '../WorkSection';
+import PrizmaSection from '../PrizmaSection';
+import { hero, about } from '../../content/profile';
+import { skillsSection } from '../../content/skills';
 import { Element } from 'react-scroll';
 
 const Intro = () => {
-
-
-
   return (
-    <div id='topContainer'>
-      <div className='contentHero'>
-        {/* <img id='meHeadshot' src={me_headshot} width='220px'/> */}
-        <div className='subContentDiv'>
-          <img id='circuitHorse' src={circuitHorse} width='150px'/>
-          <div className='contentDiv'>
-            <div id='titleName'>JON HALQUIST</div>
-            <div id='subName'>Software Engineer | Interactive Design</div>
+    <div id="topContainer">
+      <div className="contentHero">
+        <div className="subContentDiv">
+          <div className="contentDiv">
+          <img id="circuitHorse" src={circuitHorse} width="150px" alt="" />
+            <div id="titleName">{hero.name}</div>
+            <div id="subName">{hero.tagline}</div>
           </div>
         </div>
       </div>
-      <div className='contentDiv2'>
-        <div id='subName2'>Bringing curiosity and craft to every project, from production web applications to experimental hardware and generative art.</div>
+      <div className="contentDiv2">
+        <div id="subName2">{hero.subtext}</div>
       </div>
-      <Element id='aboutScroll' name='aboutScroll'>
-        <InfoCellLeft props={AboutMe}/>
+
+
+      <Element id="workScroll" name="workScroll">
+        <WorkSection />
       </Element>
-        <div className='spacerDiv'></div>
-      <Element id='skillsScroll' name='skillsScroll'>
-        {/* <SlotSpinner winRate='4' IconArr={IconArr} /> */}
-        <InfoCellRight props={Skills}/>
+
+      <div className="spacerDiv"></div>
+      
+      <Element id="aboutScroll" name="aboutScroll">
+        <InfoCellLeft props={about} />
       </Element>
-        <div className='spacerDiv'></div>
-      <Element id='projectsScroll' name='projectsScroll'>
-        <InfoCellProjects props={Skills}/>
+
+      <div className="spacerDiv"></div>
+
+      <Element id="skillsScroll" name="skillsScroll">
+        <InfoCellRight props={skillsSection} />
       </Element>
-      {/* <img id='meHeadshot' src={skullPCB} width='600px'/> */}
-      <div id='slotContainer'>
-      </div>
+
+      <div className="spacerDiv"></div>
+
+      <PrizmaSection />
+
+      <div className="spacerDiv"></div>
     </div>
-  )
+  );
 };
 
 export default Intro;

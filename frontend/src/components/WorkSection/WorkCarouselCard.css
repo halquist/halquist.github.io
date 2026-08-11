@@ -1,0 +1,162 @@
+.workCarouselCard {
+  width: 100%;
+  padding: 24px;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.workCarouselCardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.workCarouselCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.workCarouselCardMedia {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.workCarouselCardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background-color: var(--color-accent, #00e5ff);
+  filter: drop-shadow(0 0 3px #00e5ff);
+  width: 100%;
+  padding: 8px;
+}
+
+.workCarouselCardTitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6em;
+  font-weight: 550;
+  color: black;
+  filter: drop-shadow(0 0 2px black);
+  word-break: break-word;
+}
+
+.workCarouselCardTagline {
+  margin: 0;
+  color: var(--color-text-muted, rgba(255, 255, 255, 0.7));
+  font-size: 0.95em;
+}
+
+.workCarouselCardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.workCarouselCardDescription p {
+  margin: 0 0 8px;
+  color: var(--color-text, #ffffff);
+  font-size: 1em;
+  line-height: 1.55;
+}
+
+.workCarouselCardDescription p:last-of-type {
+  margin-bottom: 0;
+}
+
+.workCarouselCardVisitBtn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 229, 255, 0.6);
+  border-radius: 6px;
+  background: rgba(0, 229, 255, 0.12);
+  color: #00e5ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-decoration: none;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.35));
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.workCarouselCardVisitBtn:hover {
+  background: rgba(0, 229, 255, 0.28);
+  border-color: #00e5ff;
+  color: #ffffff;
+}
+
+.projectTag {
+  font-size: 0.75em;
+  padding: 3px 8px;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 951px) {
+  .workCarouselCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 24px;
+    max-width: none;
+    min-height: 320px;
+  }
+
+  .workCarouselCardText {
+    gap: 20px;
+  }
+
+  .workCarouselCardMedia {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: start;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 950px) {
+  .workCarouselCardText {
+    display: contents;
+  }
+
+  .workCarouselCardMeta {
+    order: 1;
+  }
+
+  .workCarouselCardMedia {
+    order: 2;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .workCarouselCardDescription {
+    order: 3;
+  }
+
+  .workCarouselCard {
+    max-width: none;
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 20px 16px;
+  }
+}

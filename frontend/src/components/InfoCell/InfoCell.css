@@ -15,12 +15,14 @@
 
 .infoOuterContainerRight {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  box-sizing: border-box;
   /* border: 2px solid #42484D; */
   border-radius: 20px;
   /* background-color: rgba(0, 0, 0, 0.2); */
@@ -29,7 +31,7 @@
 }
 
 .spacerDiv {
-  height: 300px;
+  height: 100px;
 }
 
 .spacerDivSmall {
@@ -41,6 +43,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .photoContainer {
@@ -50,19 +54,15 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  /* margin: 20px; */
+  background: transparent;
 }
 
-.slotContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 300px;
+.fillLineHorizontal {
+  background-color: rgb(0, 229, 255);
+  /* filter: drop-shadow(0px 0px 5px rgb(0, 229, 255)); */
+  height: .5px;
+  flex-grow: 1;
 }
-
-
 
 .cellTitleText {
   display: flex;
@@ -91,13 +91,21 @@
 #meHeadshot {
   transform: scaleX(-1);
   border-radius: 50%;
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  background: transparent;
 }
 
-.fillLineHorizontal {
-  background-color: rgb(0, 229, 255);
-  /* filter: drop-shadow(0px 0px 5px rgb(0, 229, 255)); */
-  height: .5px;
-  flex-grow: 1;
+.slotContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
 }
 
 .fillLineVertical {
@@ -111,24 +119,47 @@
 .cellContentContainer {
   display: flex;
   gap: 20px;
+  width: 100%;
+  min-width: 0;
 }
 
+.cellContent {
+  min-width: 0;
+  flex: 1 1 auto;
+}
 
+.skillsGrouped {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  width: 100%;
+}
 
-.skillTable {
-  /* display: flex; */
+.skillGroupTitle {
+  margin: 0 0 6px;
+  color: var(--color-accent, #00e5ff);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  font-weight: 400;
+  filter: drop-shadow(0 0 3px #00e5ff);
+}
+
+.skillGroupList {
+  display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
-  min-width: 150px;
+  gap: 6px;
+  min-width: 0;
 }
 
-
-.skillTable, tr, td {
+.skillChip {
+  font-size: 0.85em;
   padding: 4px 10px;
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 12px;
   color: #ffffff;
-  font-size: 1.05em;
-  /* border: 1px solid; */
 }
+
 
 #highlightImage2 {
   border-radius: 6px;
@@ -168,6 +199,43 @@
   margin-top: 5px;
   text-align: center;
   margin-bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .infoOuterContainer,
+  .infoOuterContainerRight {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .textContainer {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .cellContentContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cellContentContainer .fillLineVertical {
+    display: none;
+  }
+
+  .skillsGrouped {
+    max-width: 100%;
+  }
+
+  .cellTitleText {
+    font-size: 1.65em;
+  }
+
+  .slotContainer {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (orientation: portrait) {

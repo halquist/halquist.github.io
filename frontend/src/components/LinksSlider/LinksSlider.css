@@ -73,7 +73,7 @@
   height: 30px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
   .linksSliderContainer {
     display: none;
   }

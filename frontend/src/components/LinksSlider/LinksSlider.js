@@ -22,7 +22,7 @@ const LinksSlider = () => {
           </div>
         </a>
         <div className='fillLineVertical'></div>
-        <a className='sideAnchor' href='mailto: jon.halquist@gmail.com' target="_blank">
+        <a className='sideAnchor' href='mailto:jon.halquist@gmail.com'>
           <div className='sideText'>
             jon.halquist@gmail.com
           </div>
@@ -48,7 +48,7 @@ const LinksSlider = () => {
           </div>
         </a>
         {/* <div className='fillLineVerticalFooter'></div> */}
-        <a className='sideAnchor' href='mailto: jon.halquist@gmail.com' target="_blank">
+        <a className='sideAnchor' href='mailto:jon.halquist@gmail.com'>
           <div className='sideText'>
             jon.halquist@gmail.com
           </div>

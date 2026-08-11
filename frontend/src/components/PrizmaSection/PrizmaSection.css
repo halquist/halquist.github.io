@@ -1,0 +1,22 @@
+.prizmaSection {
+  width: 100%;
+}
+
+.prizmaVisualizerRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.prizmaDescription {
+  margin-bottom: 32px;
+}
+
+.prizmaDescriptionText {
+  color: var(--color-text, #ffffff);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15em;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
