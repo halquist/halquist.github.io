@@ -76,6 +76,9 @@
   .workCarouselHeading {
     justify-content: center;
   }
+}
+
+@media (max-width: 768px) {
   .workCarouselBleed {
     width: 100vw;
     margin-left: calc(50% - 50vw);

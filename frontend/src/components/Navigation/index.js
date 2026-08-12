@@ -7,9 +7,9 @@ const SCROLL_DELTA = 8;
 const TOP_REVEAL_Y = 60;
 
 const NAV_LINKS = [
-  { to: 'aboutScroll', label: 'About' },
   { to: 'workScroll', label: 'Work' },
   { to: 'skillsScroll', label: 'Skills' },
+  { to: 'aboutScroll', label: 'About' },
   { to: 'prizmaScroll', label: 'Prizma' },
 ];
 

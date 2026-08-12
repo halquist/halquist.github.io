@@ -6,11 +6,28 @@
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
-  /* border: 2px solid #42484D; */
   border-radius: 20px;
-  /* background-color: rgba(0, 0, 0, 0.2); */
   padding: 10px;
-  /* margin-bottom: 300px; */
+}
+
+.infoOuterContainer--about {
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.infoOuterContainer--about .photoContainer {
+  width: auto;
+  flex: 0 0 260px;
+}
+
+.infoOuterContainer--about .textContainer {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+}
+
+.infoOuterContainer--about .cellContent {
+  width: 100%;
 }
 
 .infoOuterContainerRight {
@@ -50,36 +67,37 @@
 .photoContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  width: auto;
   flex-shrink: 0;
+  overflow: visible;
   background: transparent;
 }
 
 .headshotFrame {
-  width: 290px;
-  height: 290px;
-  min-width: 290px;
-  min-height: 290px;
+  min-width: 260px;
+  max-width: 300px;
+  /* height: 260px; */
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
+  isolation: isolate;
+  position: relative;
+}
+
+.headshotFlip {
+  width: 100%;
+  height: 100%;
 }
 
 #meHeadshot {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 45% 40%;
-  transform: scaleX(-1);
+  object-position: 48% 38%;
   display: block;
+  border-radius: 50%;
 }
 
 .slotContainer {
@@ -224,6 +242,16 @@
     padding-right: 8px;
   }
 
+  .infoOuterContainer--about .photoContainer {
+    flex: 0 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .infoOuterContainer--about .textContainer {
+    width: 100%;
+  }
+
   .textContainer {
     width: 100%;
     align-items: stretch;
@@ -252,14 +280,15 @@
   }
 }
 
-@media screen and (orientation: portrait) {
-  .infoOuterContainer,
+@media screen and (max-width: 768px) and (orientation: portrait) {
   .infoOuterContainerRight {
     flex-direction: column;
   }
+
   .slotContainer {
     height: 100%;
   }
+
   .skillTable, tr, td {
     padding: 0px 0px;
   }

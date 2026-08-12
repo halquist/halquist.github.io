@@ -75,7 +75,7 @@
 }
 
 .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
-  padding: 0 0 0 28px;
+  padding: 0;
 }
 
 /* Vertical image carousel: chevrons overlay, never affect layout height */
@@ -89,6 +89,7 @@
   height: 100%;
 }
 
+/* Mobile + tablet: translateX centering */
 .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner .carouselChevronInner {
   position: absolute;
   left: 50%;
@@ -118,12 +119,20 @@
     gap: 0;
   }
 
+  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
+    padding: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
   .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselChevronOuter {
     display: none;
-  }
-
-  .carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackSlide {
-    padding: 0px;
   }
 }
 
@@ -143,5 +152,18 @@
 
   .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner {
     height: 100%;
+  }
+
+  /* Desktop: margin auto centering over image column */
+  .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner .carouselChevronInner {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform: none;
+  }
+
+  .carouselSlideTrackOuter--vertical.carouselSlideTrackOuter--inner .carouselChevronInner:hover:not(.carouselChevronHidden) {
+    transform: scale(1.08);
   }
 }
