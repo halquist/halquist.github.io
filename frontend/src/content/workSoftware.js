@@ -27,7 +27,7 @@ const workSoftware = [
     tagline: 'Social polling platform',
     description: [
       'Pulse is a social polling site where users can create quick, two-choice polls on any topic and vote on polls from other users across multiple feeds.',
-      'Voting earns bpm—the currency of Pulse—which can be spent to create polls or customize your profile in the store.',
+      'Voting earns bpm, the currency of Pulse, which can be spent to create polls or customize your profile in the store.',
     ],
     tags: ['React', 'Redux', 'Express', 'PostgreSQL'],
     images: [pulse3, pulse1, pulse2, pulse4],
