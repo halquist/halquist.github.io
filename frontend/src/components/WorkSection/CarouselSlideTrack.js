@@ -121,6 +121,19 @@ const CarouselSlideTrack = ({
   const nextChevronDirection = isVertical ? 'down' : 'right';
   const liveStatus = `${ariaLabelPrefix} ${safeIndex + 1} of ${count}`;
 
+  // At carousel edges, let the browser scroll the page in the direction
+  // that can't change slides (pan-down at first, pan-up at last).
+  let verticalTouchAction = 'none';
+  if (isVertical) {
+    if (!hasMultiple) {
+      verticalTouchAction = 'pan-y';
+    } else if (safeIndex === 0) {
+      verticalTouchAction = 'pan-down';
+    } else if (safeIndex === count - 1) {
+      verticalTouchAction = 'pan-up';
+    }
+  }
+
   return (
     <div
       className={`carouselSlideTrackOuter carouselSlideTrackOuter--${chevronSize} carouselSlideTrackOuter--${direction} ${className}`.trim()}
@@ -143,6 +156,7 @@ const CarouselSlideTrack = ({
       <div
         ref={viewportRef}
         className="carouselSlideTrackViewport"
+        style={isVertical ? { touchAction: verticalTouchAction } : undefined}
         tabIndex={hasMultiple ? 0 : undefined}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

@@ -40,18 +40,18 @@ const workVisualArts = [
     images: [shirt4, shirt1, shirt2, shirt5, shirt3],
     link: null,
   },
-  {
-    id: 'fine-art',
-    category: 'Visual Arts',
-    title: 'Fine Art',
-    tagline: 'Digital and traditional artwork',
-    description: [
-      'A collection of digital and traditional fine art pieces exploring color, form, and visual narrative.',
-    ],
-    tags: ['Digital Art', 'Fine Art', 'Illustration'],
-    images: [fine3, fine2, fine1],
-    link: null,
-  },
+  // {
+  //   id: 'fine-art',
+  //   category: 'Visual Arts',
+  //   title: 'Fine Art',
+  //   tagline: 'Digital and traditional artwork',
+  //   description: [
+  //     'A collection of digital and traditional fine art pieces exploring color, form, and visual narrative.',
+  //   ],
+  //   tags: ['Digital Art', 'Fine Art', 'Illustration'],
+  //   images: [fine3, fine2, fine1],
+  //   link: null,
+  // },
 ];
 
 export default workVisualArts;
