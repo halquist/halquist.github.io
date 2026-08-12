@@ -30,7 +30,7 @@ const workSoftware = [
       'Voting earns bpm—the currency of Pulse—which can be spent to create polls or customize your profile in the store.',
     ],
     tags: ['React', 'Redux', 'Express', 'PostgreSQL'],
-    images: [pulse1, pulse3, pulse2, pulse4],
+    images: [pulse3, pulse1, pulse2, pulse4],
     link: 'https://pulse-g8wh.onrender.com/',
   },
 ];

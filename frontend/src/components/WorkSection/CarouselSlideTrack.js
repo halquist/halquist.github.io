@@ -4,6 +4,7 @@ import './CarouselSlideTrack.css';
 
 const SWIPE_THRESHOLD = 50;
 const SLIDE_GAP_PX = 5;
+const AXIS_THRESHOLD = 10;
 
 const CarouselSlideTrack = ({
   slides,
@@ -19,6 +20,10 @@ const CarouselSlideTrack = ({
   const touchStart = useRef(null);
   const viewportRef = useRef(null);
   const didMountRef = useRef(false);
+  const safeIndexRef = useRef(0);
+  const countRef = useRef(0);
+  const hasMultipleRef = useRef(false);
+  const goToRef = useRef(() => {});
   const isVertical = direction === 'vertical';
   const isControlled = controlledIndex !== undefined;
   // Outer horizontal cards and vertical image strips both use a 5px flex gap.
@@ -37,6 +42,11 @@ const CarouselSlideTrack = ({
     onIndexChange?.(clamped);
   };
 
+  safeIndexRef.current = safeIndex;
+  countRef.current = count;
+  hasMultipleRef.current = hasMultiple;
+  goToRef.current = goTo;
+
   useEffect(() => {
     if (!didMountRef.current) {
       didMountRef.current = true;
@@ -47,6 +57,98 @@ const CarouselSlideTrack = ({
 
   const goPrev = () => goTo(safeIndex - 1);
   const goNext = () => goTo(safeIndex + 1);
+
+  useEffect(() => {
+    if (!isVertical || !viewportRef.current || !hasMultiple) {
+      return undefined;
+    }
+
+    const viewport = viewportRef.current;
+    const gesture = {
+      startX: 0,
+      startY: 0,
+      lastY: 0,
+      startIndex: 0,
+      lock: null,
+    };
+
+    const onTouchStart = (e) => {
+      const touch = e.touches[0];
+      gesture.startX = touch.clientX;
+      gesture.startY = touch.clientY;
+      gesture.lastY = touch.clientY;
+      gesture.startIndex = safeIndexRef.current;
+      gesture.lock = null;
+    };
+
+    const onTouchMove = (e) => {
+      const touch = e.touches[0];
+      const dx = touch.clientX - gesture.startX;
+      const dy = touch.clientY - gesture.startY;
+      const stepDy = touch.clientY - gesture.lastY;
+      gesture.lastY = touch.clientY;
+
+      if (gesture.lock === null) {
+        if (Math.abs(dy) < AXIS_THRESHOLD && Math.abs(dx) < AXIS_THRESHOLD) {
+          return;
+        }
+        if (Math.abs(dy) <= Math.abs(dx)) {
+          gesture.lock = 'page';
+        } else if (dy < 0 && gesture.startIndex < countRef.current - 1) {
+          gesture.lock = 'carousel';
+        } else if (dy > 0 && gesture.startIndex > 0) {
+          gesture.lock = 'carousel';
+        } else {
+          gesture.lock = 'page';
+        }
+      }
+
+      if (gesture.lock === 'carousel') {
+        e.preventDefault();
+      } else if (gesture.lock === 'page') {
+        e.preventDefault();
+        window.scrollBy(0, -stepDy);
+      }
+    };
+
+    const onTouchEnd = (e) => {
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - gesture.startX;
+      const dy = touch.clientY - gesture.startY;
+
+      if (
+        gesture.lock === 'carousel' &&
+        Math.abs(dy) > Math.abs(dx) &&
+        Math.abs(dy) > SWIPE_THRESHOLD
+      ) {
+        const idx = gesture.startIndex;
+        const slideCount = countRef.current;
+        if (dy < 0 && idx < slideCount - 1) {
+          goToRef.current(idx + 1);
+        } else if (dy > 0 && idx > 0) {
+          goToRef.current(idx - 1);
+        }
+      }
+
+      gesture.lock = null;
+    };
+
+    const onTouchCancel = () => {
+      gesture.lock = null;
+    };
+
+    viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+    viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+    viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+    viewport.addEventListener('touchcancel', onTouchCancel, { passive: true });
+
+    return () => {
+      viewport.removeEventListener('touchstart', onTouchStart);
+      viewport.removeEventListener('touchmove', onTouchMove);
+      viewport.removeEventListener('touchend', onTouchEnd);
+      viewport.removeEventListener('touchcancel', onTouchCancel);
+    };
+  }, [isVertical, hasMultiple, count]);
 
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
@@ -60,12 +162,7 @@ const CarouselSlideTrack = ({
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
 
-    if (isVertical) {
-      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > SWIPE_THRESHOLD) {
-        if (deltaY < 0 && safeIndex < count - 1) goNext();
-        if (deltaY > 0 && safeIndex > 0) goPrev();
-      }
-    } else if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > SWIPE_THRESHOLD) {
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > SWIPE_THRESHOLD) {
       if (deltaX < 0 && safeIndex < count - 1) goNext();
       if (deltaX > 0 && safeIndex > 0) goPrev();
     }
@@ -121,18 +218,12 @@ const CarouselSlideTrack = ({
   const nextChevronDirection = isVertical ? 'down' : 'right';
   const liveStatus = `${ariaLabelPrefix} ${safeIndex + 1} of ${count}`;
 
-  // At carousel edges, let the browser scroll the page in the direction
-  // that can't change slides (pan-down at first, pan-up at last).
-  let verticalTouchAction = 'none';
-  if (isVertical) {
-    if (!hasMultiple) {
-      verticalTouchAction = 'pan-y';
-    } else if (safeIndex === 0) {
-      verticalTouchAction = 'pan-down';
-    } else if (safeIndex === count - 1) {
-      verticalTouchAction = 'pan-up';
-    }
-  }
+  const viewportClassName = [
+    'carouselSlideTrackViewport',
+    isVertical && !hasMultiple ? 'carouselSlideTrackViewport--pageScroll' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div
@@ -155,11 +246,10 @@ const CarouselSlideTrack = ({
 
       <div
         ref={viewportRef}
-        className="carouselSlideTrackViewport"
-        style={isVertical ? { touchAction: verticalTouchAction } : undefined}
+        className={viewportClassName}
         tabIndex={hasMultiple ? 0 : undefined}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        onTouchStart={!isVertical ? handleTouchStart : undefined}
+        onTouchEnd={!isVertical ? handleTouchEnd : undefined}
         onKeyDown={handleKeyDown}
         aria-label={hasMultiple ? liveStatus : undefined}
       >

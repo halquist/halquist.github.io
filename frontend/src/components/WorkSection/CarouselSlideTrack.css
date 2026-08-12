@@ -47,9 +47,13 @@
 }
 
 .carouselSlideTrackOuter--vertical .carouselSlideTrackViewport {
-  /* touch-action is set inline from slide index (pan-up/down at edges) */
+  touch-action: none;
   width: 100%;
   height: 100%;
+}
+
+.carouselSlideTrackOuter--vertical .carouselSlideTrackViewport--pageScroll {
+  touch-action: pan-y;
 }
 
 .carouselSlideTrackStrip {
