@@ -68,6 +68,7 @@ const LinksSlider = () => {
           </div>
         </a>
         <a className='sideAnchor' href='mailto:jon.halquist@gmail.com'>
+          <img className='icon' src={email} width='30' height='30' alt="" />
           <div className='sideText'>
             Email
           </div>
