@@ -2,6 +2,7 @@ import './LinksSlider.css'
 
 import linkedin from '../../images/linkedin.svg'
 import github from '../../images/github.svg'
+import email from '../../images/email.svg'
 
 const LinksSlider = () => {
   return (
@@ -33,6 +34,7 @@ const LinksSlider = () => {
         </a>
         <div className='fillLineVertical' aria-hidden="true"></div>
         <a className='sideAnchor' href='mailto:jon.halquist@gmail.com'>
+          <img className='icon' src={email} width='30' height='30' alt="" />
           <div className='sideText'>
             Email
           </div>
