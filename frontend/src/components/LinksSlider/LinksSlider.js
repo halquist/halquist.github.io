@@ -8,15 +8,25 @@ const LinksSlider = () => {
     <>
     <div className='linksSliderContainer'>
       <div className='rotateContainer'>
-        <a className='sideAnchor' href='https://github.com/halquist' target="_blank">
-        <img className='icon' src={github} width='30px'/>
+        <a
+          className='sideAnchor'
+          href='https://github.com/halquist'
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        <img className='icon' src={github} width='30px' alt="" />
           <div className='sideText'>
             Github
           </div>
         </a>
         <div className='fillLineVertical'></div>
-        <a className='sideAnchor' href='https://www.linkedin.com/in/jonhalquist/' target="_blank">
-          <img className='icon' src={linkedin} width='30px'/>
+        <a
+          className='sideAnchor'
+          href='https://www.linkedin.com/in/jonhalquist/'
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className='icon' src={linkedin} width='30px' alt="" />
           <div className='sideText'>
             LinkedIn
           </div>
@@ -33,27 +43,33 @@ const LinksSlider = () => {
 
     <div className='linksSliderFooter'>
       <div className='footerContainer'>
-        {/* <div className='fillLineVerticalFooter'></div> */}
-        <a className='sideAnchor' href='https://github.com/halquist' target="_blank">
-        <img className='icon' src={github} width='30px'/>
+        <a
+          className='sideAnchor'
+          href='https://github.com/halquist'
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        <img className='icon' src={github} width='30px' alt="" />
           <div className='sideText'>
             Github
           </div>
         </a>
-        {/* <div className='fillLineVerticalFooter'></div> */}
-        <a className='sideAnchor' href='https://www.linkedin.com/in/jonhalquist/' target="_blank">
-          <img className='icon' src={linkedin} width='30px'/>
+        <a
+          className='sideAnchor'
+          href='https://www.linkedin.com/in/jonhalquist/'
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className='icon' src={linkedin} width='30px' alt="" />
           <div className='sideText'>
             LinkedIn
           </div>
         </a>
-        {/* <div className='fillLineVerticalFooter'></div> */}
         <a className='sideAnchor' href='mailto:jon.halquist@gmail.com'>
           <div className='sideText'>
             Email
           </div>
         </a>
-        {/* <div className='fillLineVerticalFooter'></div> */}
       </div>
     </div>
     </>

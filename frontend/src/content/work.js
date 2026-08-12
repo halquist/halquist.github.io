@@ -35,8 +35,6 @@ import graphic9 from '../images/graphic/skull_photo.png'
 import machina1 from '../images/fine/machina_photo.png';
 import fine1 from '../images/fine/fineart1.png';
 import fine2 from '../images/fine/fineart2.png';
-import placeholderHardware from '../images/work/placeholder-hardware.svg';
-import placeholderArt from '../images/work/placeholder-art.svg';
 
 export const WORK_CAROUSELS = [
   { id: 'software', title: 'Projects', category: 'Software' },

@@ -89,7 +89,9 @@ const CarouselSlideTrack = ({
     ? slideSize
       ? `translateY(-${safeIndex * slideSize}px)`
       : `translateY(-${safeIndex * 100}%)`
-    : `translateX(-${safeIndex * 100}%)`;
+    : chevronSize === 'outer'
+      ? `translateX(calc(-${safeIndex} * (100% + 5px)))`
+      : `translateX(-${safeIndex * 100}%)`;
 
   const prevChevronDirection = isVertical ? 'up' : 'left';
   const nextChevronDirection = isVertical ? 'down' : 'right';

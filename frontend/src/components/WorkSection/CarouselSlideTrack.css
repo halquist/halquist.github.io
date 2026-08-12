@@ -51,6 +51,10 @@
   height: 100%;
 }
 
+.carouselSlideTrackOuter--outer.carouselSlideTrackOuter--horizontal .carouselSlideTrackStrip {
+  gap: 5px;
+}
+
 .carouselSlideTrackOuter--vertical .carouselSlideTrackStrip {
   flex-direction: column;
   width: 100%;
