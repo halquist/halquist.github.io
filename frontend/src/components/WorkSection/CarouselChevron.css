@@ -3,7 +3,7 @@
   border-radius: 50%;
   border: none;
   background: rgba(0, 0, 0, 0.85);
-  color: var(--color-accent, #00e5ff);
+  color: var(--color-accent);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@
 }
 
 .carouselChevron:hover:not(.carouselChevronHidden) {
-  background: rgba(0, 229, 255, 0.85);
+  background: rgba(var(--color-accent-rgb), 0.85);
   color: #000;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .carouselChevron:focus-visible {
-  outline: 2px solid var(--color-accent, #00e5ff);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 

@@ -17,11 +17,10 @@
 
 .workCarouselTitle {
   margin: 0 83px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 1.8em;
   font-weight: 400;
-  color:  #ff3086 !important;
-  filter: drop-shadow(0 0 3px #ff34cc);
+  color: var(--color-secondary) !important;
+  filter: drop-shadow(0 0 3px var(--color-secondary-glow));
 }
 
 .workCarouselCounter {
@@ -67,20 +66,20 @@
 }
 
 .workCarouselDot:hover::before {
-  border-color: rgba(0, 229, 255, 0.6);
-  background: rgba(0, 229, 255, 0.25);
+  border-color: rgba(var(--color-accent-rgb), 0.6);
+  background: rgba(var(--color-accent-rgb), 0.25);
 }
 
 .workCarouselDot--active::before {
   width: 10px;
   height: 10px;
-  border-color: var(--color-accent, #00e5ff);
-  background: var(--color-accent, #00e5ff);
-  box-shadow: 0 0 6px rgba(0, 229, 255, 0.55);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  box-shadow: 0 0 6px rgba(var(--color-accent-rgb), 0.55);
 }
 
 .workCarouselDot:focus-visible {
-  outline: 2px solid var(--color-accent, #00e5ff);
+  outline: 2px solid var(--color-accent);
   outline-offset: 0;
 }
 

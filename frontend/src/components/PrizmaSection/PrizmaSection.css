@@ -13,8 +13,7 @@
 }
 
 .prizmaDescriptionText {
-  color: var(--color-text, #ffffff);
-  font-family: 'Montserrat', sans-serif;
+  color: var(--color-text);
   font-size: 1.15em;
   font-weight: 400;
   line-height: 1.6;

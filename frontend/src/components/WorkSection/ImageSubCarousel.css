@@ -31,7 +31,7 @@
   display: block;
   box-sizing: border-box;
   border-radius: 8px;
-  border: 2px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
 }
 
 .imageSubCarouselEmpty {
@@ -40,8 +40,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-muted, rgba(255, 255, 255, 0.5));
-  border: 2px dashed rgba(0, 229, 255, 0.3);
+  color: var(--color-text-muted);
+  border: 1px dashed rgba(var(--color-accent-rgb), 0.3);
   border-radius: 4px;
 }
 

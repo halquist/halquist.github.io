@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rye&display=swap');
-
 :root {
   --color-bg: #000000;
   --color-accent: #00e5ff;
+  --color-accent-rgb: 0, 229, 255;
+  --color-secondary: #ff3086;
+  --color-secondary-glow: #ff34cc;
   --color-text: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.7);
-  --glow: drop-shadow(0 0 5px #00e5ff);
+  --glow: drop-shadow(0 0 5px var(--color-accent));
+  --glow-sm: drop-shadow(0 0 3px var(--color-accent));
   --max-width: 925px;
   --section-gap: 300px;
 }
@@ -20,45 +22,31 @@ html {
 
 body {
   position: relative;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  /* animation: fade_in 1s ease-in; */
-  /* filter: blur(10px); */
 }
-
-/* #trees {
-  animation: fade_in 2s ease-in-out;
-  background-color: red;
-  width: 500px;
-
-} */
 
 #root {
   position: relative;
   margin: 0;
-  /* padding: 100px 0 0; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100%;
-  justify-content: center;
-  align-items: center;
   overflow-x: hidden;
 }
 
 a {
   color: var(--color-accent);
   text-decoration: none;
-  margin: none;
-  padding: none;
 }
 
 a:visited {
@@ -94,6 +82,24 @@ a:visited {
   transform: translateY(0);
 }
 
+.spacerDiv {
+  height: 100px;
+}
+
+.fillLineHorizontal {
+  background-color: var(--color-accent);
+  height: 0.5px;
+  flex-grow: 1;
+}
+
+.fillLineVertical {
+  background-color: var(--color-accent);
+  filter: var(--glow);
+  min-width: 1px;
+  flex-grow: 1;
+  min-height: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -104,21 +110,3 @@ a:visited {
     scroll-behavior: auto !important;
   }
 }
-
-@keyframes fade_in {
-  0% {
-    /* opacity: 0; */
-    filter: blur(300px);
-  } 100% {
-    /* opacity: 1; */
-    filter: blur(0px);
-  }
-}
-
-/* @keyframes blur_in {
-  0% {
-    filter: blur(5000px);
-  } 100% {
-    filter: blur(0px);
-  }
-} */

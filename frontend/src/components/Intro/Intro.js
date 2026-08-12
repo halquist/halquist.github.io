@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react';
 import './Intro.css';
 import circuitHorse from '../../images/circuit_horse.svg';
 import InfoCellLeft from '../InfoCell/InfoCellLeft';
 import InfoCellRight from '../InfoCell/InfoCellRight';
 import WorkSection from '../WorkSection';
-import PrizmaSection from '../PrizmaSection';
 import { hero, about } from '../../content/profile';
 import { skillsSection } from '../../content/skills';
 import { Element } from 'react-scroll';
+
+const PrizmaSection = lazy(() => import('../PrizmaSection'));
 
 const Intro = () => {
   return (
@@ -43,7 +45,9 @@ const Intro = () => {
 
       <div className="spacerDiv"></div>
 
-      <PrizmaSection />
+      <Suspense fallback={null}>
+        <PrizmaSection />
+      </Suspense>
 
       <div className="spacerDiv"></div>
     </div>

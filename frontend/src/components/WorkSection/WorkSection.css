@@ -3,10 +3,9 @@
 }
 
 .sectionHeading {
-  color: var(--color-accent, #00e5ff);
-  filter: var(--glow, drop-shadow(0 0 5px #00e5ff));
+  color: var(--color-accent);
+  filter: var(--glow);
   font-size: 2.8em;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   text-align: center;
   margin: 0 0 48px;

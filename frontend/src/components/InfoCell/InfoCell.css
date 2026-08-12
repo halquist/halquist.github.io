@@ -40,19 +40,8 @@
   align-items: center;
   gap: 10px;
   box-sizing: border-box;
-  /* border: 2px solid #42484D; */
   border-radius: 20px;
-  /* background-color: rgba(0, 0, 0, 0.2); */
   padding: 10px;
-  /* margin-bottom: 500px; */
-}
-
-.spacerDiv {
-  height: 100px;
-}
-
-.spacerDivSmall {
-  height: 100px;
 }
 
 .textContainer {
@@ -78,7 +67,6 @@
 .headshotFrame {
   min-width: 260px;
   max-width: 300px;
-  /* height: 260px; */
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
@@ -113,40 +101,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  color: #00e5ff;
-  filter: drop-shadow(0px 0px 3px #00e5ff);
-  /* color:#CE5438; */
+  color: var(--color-accent);
+  filter: var(--glow-sm);
   font-size: 2.1em;
   text-align: center;
   width: 100%;
   gap: 10px;
   margin: 0;
-  /* margin-bottom: 20px; */
 }
 
 .cellContentText {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 1.2em;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   margin-top: 5px;
-}
-
-.fillLineHorizontal {
-  background-color: rgb(0, 229, 255);
-  /* filter: drop-shadow(0px 0px 5px rgb(0, 229, 255)); */
-  height: .5px;
-  flex-grow: 1;
-}
-
-.fillLineVertical {
-  background-color: rgb(0, 229, 255);
-  filter: drop-shadow(0px 0px 5px rgb(0, 229, 255));
-  min-width: 1px;
-  flex-grow: 1;
-  min-height: 100%;
 }
 
 .cellContentContainer {
@@ -171,11 +140,10 @@
 
 .skillGroupTitle {
   margin: 0 0 6px;
-  color: var(--color-accent, #00e5ff);
-  font-family: 'Montserrat', sans-serif;
+  color: var(--color-accent);
   font-size: 0.95em;
   font-weight: 400;
-  filter: drop-shadow(0 0 3px #00e5ff);
+  filter: var(--glow-sm);
 }
 
 .skillGroupList {
@@ -188,50 +156,9 @@
 .skillChip {
   font-size: 0.85em;
   padding: 4px 10px;
-  border: 1px solid rgba(0, 229, 255, 0.25);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.25);
   border-radius: 12px;
-  color: #ffffff;
-}
-
-
-#highlightImage2 {
-  border-radius: 6px;
-  /* max-width: 420px; */
-  /* max-width: 90vw; */
-  max-width: 100%;
-  height: 100%;
-  filter: drop-shadow(0px 0px 5px #00e5ff);
-
-  /* min-width: auto\9; */
-}
-
-#image2container {
-  min-width: 300px;
-  max-width: auto;
-  display: flex;
-  justify-content: center;
-}
-
-
-.cellContent2 {
-  /* background-color: #CE5438; */
-  color: #ffffff;
-  font-size: 1.2em;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  margin-top: 5px;
-}
-
-#subNameCenter {
-  color: rgb(0, 229, 255);
-  filter: drop-shadow(0px 0px 5px #00e5ff);
-  /* color: #CE5438; */
-  font-size: 2.8em;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 200;
-  margin-top: 5px;
-  text-align: center;
-  margin-bottom: 60px;
+  color: var(--color-text);
 }
 
 @media screen and (max-width: 768px) {
@@ -288,9 +215,5 @@
 
   .slotContainer {
     height: 100%;
-  }
-
-  .skillTable, tr, td {
-    padding: 0px 0px;
   }
 }

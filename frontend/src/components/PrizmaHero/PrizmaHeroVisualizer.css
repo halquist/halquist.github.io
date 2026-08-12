@@ -17,6 +17,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .prizmaHeroCircle {
-    box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(var(--color-accent-rgb), 0.2);
   }
 }
