@@ -11,9 +11,9 @@ import graphic6 from '../images/graphic/graphic6.webp';
 import graphic7 from '../images/graphic/graphic7.webp';
 import graphic8 from '../images/graphic/graphic8.webp';
 import graphic9 from '../images/graphic/graphic9.webp';
-import fine1 from '../images/fine/fineart1.webp';
-import fine2 from '../images/fine/fineart2.webp';
-import fine3 from '../images/fine/fineart3.webp';
+// import fine1 from '../images/fine/fineart1.webp';
+// import fine2 from '../images/fine/fineart2.webp';
+// import fine3 from '../images/fine/fineart3.webp';
 
 const workVisualArts = [
   {
