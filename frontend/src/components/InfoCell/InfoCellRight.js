@@ -10,16 +10,16 @@ const InfoCellRight = ({ props }) => {
         <SlotSpinner winRate="4" IconArr={IconArr} />
       </div>
       <div className="textContainer">
-        <div className="cellTitleText">
-          <div className="fillLineHorizontal"></div>
+        <h2 className="cellTitleText">
+          <div className="fillLineHorizontal" aria-hidden="true"></div>
           {props.title}
-        </div>
+        </h2>
         <div className="cellContentContainer">
           <div className="cellContent">
             <div className="skillsGrouped">
               {skillGroups.map((group) => (
                 <div key={group.domain} className="skillGroup">
-                  <h4 className="skillGroupTitle">{group.domain}</h4>
+                  <h3 className="skillGroupTitle">{group.domain}</h3>
                   <div className="skillGroupList">
                     {group.skills.map((skill) => (
                       <span key={skill} className="skillChip">
@@ -31,7 +31,7 @@ const InfoCellRight = ({ props }) => {
               ))}
             </div>
           </div>
-          <div className="fillLineVertical"></div>
+          <div className="fillLineVertical" aria-hidden="true"></div>
         </div>
       </div>
     </div>

@@ -21,17 +21,15 @@ const WorkCarousel = ({ title, items }) => {
       {hasMultiple && (
         <div
           className="workCarouselPagination"
-          role="tablist"
+          role="group"
           aria-label={`${title} projects`}
         >
           {items.map((item, i) => (
             <button
               key={item.id}
               type="button"
-              role="tab"
               className={`workCarouselDot ${i === safeIndex ? 'workCarouselDot--active' : ''}`}
               aria-label={`Go to project ${i + 1} of ${items.length}`}
-              aria-selected={i === safeIndex}
               aria-current={i === safeIndex ? 'true' : undefined}
               onClick={() => setCardIndex(i)}
             />

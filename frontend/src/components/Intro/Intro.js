@@ -14,8 +14,8 @@ const Intro = () => {
       <div className="contentHero">
         <div className="subContentDiv">
           <div className="contentDiv">
-          <img id="circuitHorse" src={circuitHorse} width="150px" alt="" />
-            <div id="titleName">{hero.name}</div>
+          <img id="circuitHorse" src={circuitHorse} width="150" height="150" alt="" />
+            <h1 id="titleName">{hero.name}</h1>
             <div id="subName">{hero.tagline}</div>
           </div>
         </div>

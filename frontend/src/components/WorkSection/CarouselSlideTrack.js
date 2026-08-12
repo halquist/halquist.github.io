@@ -3,6 +3,7 @@ import CarouselChevron from './CarouselChevron';
 import './CarouselSlideTrack.css';
 
 const SWIPE_THRESHOLD = 50;
+const SLIDE_GAP_PX = 5;
 
 const CarouselSlideTrack = ({
   slides,
@@ -14,11 +15,14 @@ const CarouselSlideTrack = ({
   onIndexChange,
 }) => {
   const [internalIndex, setInternalIndex] = useState(0);
-  const [slideSize, setSlideSize] = useState(null);
+  const [announce, setAnnounce] = useState(false);
   const touchStart = useRef(null);
   const viewportRef = useRef(null);
+  const didMountRef = useRef(false);
   const isVertical = direction === 'vertical';
   const isControlled = controlledIndex !== undefined;
+  // Outer horizontal cards and vertical image strips both use a 5px flex gap.
+  const useGap = chevronSize === 'outer' || isVertical;
 
   const count = slides.length;
   const index = isControlled ? controlledIndex : internalIndex;
@@ -33,28 +37,16 @@ const CarouselSlideTrack = ({
     onIndexChange?.(clamped);
   };
 
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    setAnnounce(true);
+  }, [safeIndex]);
+
   const goPrev = () => goTo(safeIndex - 1);
   const goNext = () => goTo(safeIndex + 1);
-
-  useEffect(() => {
-    if (!isVertical || !viewportRef.current) {
-      setSlideSize(null);
-      return undefined;
-    }
-
-    const viewport = viewportRef.current;
-
-    const updateSlideSize = () => {
-      setSlideSize(viewport.clientHeight);
-    };
-
-    updateSlideSize();
-
-    const observer = new ResizeObserver(updateSlideSize);
-    observer.observe(viewport);
-
-    return () => observer.disconnect();
-  }, [isVertical, count]);
 
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
@@ -81,25 +73,65 @@ const CarouselSlideTrack = ({
     touchStart.current = null;
   };
 
+  const handleKeyDown = (e) => {
+    if (!hasMultiple) return;
+
+    if (isVertical) {
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        goPrev();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goTo(count - 1);
+      }
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      goPrev();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      goNext();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      goTo(count - 1);
+    }
+  };
+
   if (!count) {
     return null;
   }
 
   const stripTransform = isVertical
-    ? slideSize
-      ? `translateY(-${safeIndex * slideSize}px)`
+    ? useGap
+      ? `translateY(calc(-${safeIndex} * (100% + ${SLIDE_GAP_PX}px)))`
       : `translateY(-${safeIndex * 100}%)`
-    : chevronSize === 'outer'
-      ? `translateX(calc(-${safeIndex} * (100% + 5px)))`
+    : useGap
+      ? `translateX(calc(-${safeIndex} * (100% + ${SLIDE_GAP_PX}px)))`
       : `translateX(-${safeIndex * 100}%)`;
 
   const prevChevronDirection = isVertical ? 'up' : 'left';
   const nextChevronDirection = isVertical ? 'down' : 'right';
+  const liveStatus = `${ariaLabelPrefix} ${safeIndex + 1} of ${count}`;
 
   return (
     <div
       className={`carouselSlideTrackOuter carouselSlideTrackOuter--${chevronSize} carouselSlideTrackOuter--${direction} ${className}`.trim()}
+      role="group"
+      aria-roledescription="carousel"
+      aria-label={`${ariaLabelPrefix} carousel`}
     >
+      <div className="carouselSlideTrackLive" aria-live="polite" aria-atomic="true">
+        {announce && hasMultiple ? liveStatus : null}
+      </div>
+
       <CarouselChevron
         direction={prevChevronDirection}
         size={chevronSize}
@@ -111,26 +143,33 @@ const CarouselSlideTrack = ({
       <div
         ref={viewportRef}
         className="carouselSlideTrackViewport"
+        tabIndex={hasMultiple ? 0 : undefined}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        onKeyDown={handleKeyDown}
+        aria-label={hasMultiple ? liveStatus : undefined}
       >
         <div
           className="carouselSlideTrackStrip"
           style={{ transform: stripTransform }}
         >
-          {slides.map((slide) => (
-            <div
-              className="carouselSlideTrackSlide"
-              key={slide.key}
-              style={
-                isVertical && slideSize
-                  ? { height: slideSize, flexBasis: slideSize }
-                  : undefined
-              }
-            >
-              {slide.node}
-            </div>
-          ))}
+          {slides.map((slide, slideIndex) => {
+            const isActive = slideIndex === safeIndex;
+            return (
+              <div
+                className="carouselSlideTrackSlide"
+                key={slide.key}
+                aria-hidden={!isActive}
+                ref={(el) => {
+                  if (el) {
+                    el.inert = !isActive;
+                  }
+                }}
+              >
+                {slide.node}
+              </div>
+            );
+          })}
         </div>
       </div>
 

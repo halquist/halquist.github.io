@@ -7,7 +7,7 @@ const WorkCarouselCard = ({ item }) => {
       <div className="workCarouselCardText">
         <div className="workCarouselCardMeta">
           <header className="workCarouselCardHeader">
-            <h3 className="workCarouselCardTitle">{item.title}</h3>
+            <h4 className="workCarouselCardTitle">{item.title}</h4>
           </header>
 
           {item.tagline && <p className="workCarouselCardTagline">{item.tagline}</p>}

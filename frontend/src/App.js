@@ -5,9 +5,14 @@ import LinksSlider from './components/LinksSlider';
 function App() {
   return (
     <>
+      <a className="skipLink" href="#mainContent">
+        Skip to content
+      </a>
       <Navigation />
       <LinksSlider />
-      <Intro />
+      <main id="mainContent">
+        <Intro />
+      </main>
     </>
   );
 }

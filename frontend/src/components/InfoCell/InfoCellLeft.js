@@ -15,10 +15,10 @@ const InfoCellLeft = ({ props }) => {
         </div>
       </div>
       <div className="textContainer">
-        <div className="cellTitleText">
+        <h2 className="cellTitleText">
           {props.title}
-          <div className="fillLineHorizontal"></div>
-        </div>
+          <div className="fillLineHorizontal" aria-hidden="true"></div>
+        </h2>
         <div className="cellContent">
           {props.content.map((el, index) => (
             <p className="cellContentText" key={index}>

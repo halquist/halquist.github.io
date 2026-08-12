@@ -16,6 +16,10 @@ const SlotSpinner = ({ winRate, IconArr }) => {
   );
   const [rerunAnim, setRerunAnim] = useState(false);
   const [trigger, setTrigger] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
   const timersRef = useRef({
     spinnerInterval: null,
     loseTimeout: null,
@@ -24,6 +28,17 @@ const SlotSpinner = ({ winRate, IconArr }) => {
   });
 
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onChange = (event) => setReducedMotion(event.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      return undefined;
+    }
+
     const pickIcon = () => IconArr[Math.floor(Math.random() * IconArr.length)];
     const timers = timersRef.current;
 
@@ -89,19 +104,19 @@ const SlotSpinner = ({ winRate, IconArr }) => {
     }, 500);
 
     return clearAllTimers;
-  }, [trigger, winRate, IconArr]);
+  }, [trigger, winRate, IconArr, reducedMotion]);
 
   return (
-    <div id="slotMachineContainer">
+    <div id="slotMachineContainer" aria-hidden="true">
       <div id="fullSpinnerRow">
         <div className="spinnerContainer">
           <div className="bpmValueDisplaySpinner">
             <div className="spinnerHighlight"></div>
             <div id="el1">
               {rerunAnim ? (
-                <img id="spinnerIconOne" src={displayIconOne} width="80px" alt="" />
+                <img id="spinnerIconOne" src={displayIconOne} width="80" alt="" />
               ) : (
-                <img id="spinnerIconOneWin" src={displayIconOne} width="80px" alt="" />
+                <img id="spinnerIconOneWin" src={displayIconOne} width="80" alt="" />
               )}
             </div>
           </div>
@@ -111,9 +126,9 @@ const SlotSpinner = ({ winRate, IconArr }) => {
             <div className="spinnerHighlight"></div>
             <div id="el2">
               {rerunAnim ? (
-                <img id="spinnerIconTwo" src={displayIconTwo} width="80px" alt="" />
+                <img id="spinnerIconTwo" src={displayIconTwo} width="80" alt="" />
               ) : (
-                <img id="spinnerIconTwoWin" src={displayIconTwo} width="80px" alt="" />
+                <img id="spinnerIconTwoWin" src={displayIconTwo} width="80" alt="" />
               )}
             </div>
           </div>
@@ -123,9 +138,9 @@ const SlotSpinner = ({ winRate, IconArr }) => {
             <div className="spinnerHighlight"></div>
             <div id="el3">
               {rerunAnim ? (
-                <img id="spinnerIconThree" src={displayIconThree} width="80px" alt="" />
+                <img id="spinnerIconThree" src={displayIconThree} width="80" alt="" />
               ) : (
-                <img id="spinnerIconThreeWin" src={displayIconThree} width="80px" alt="" />
+                <img id="spinnerIconThreeWin" src={displayIconThree} width="80" alt="" />
               )}
             </div>
           </div>

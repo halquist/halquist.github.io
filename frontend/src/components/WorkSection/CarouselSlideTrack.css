@@ -30,6 +30,18 @@
   isolation: isolate;
 }
 
+.carouselSlideTrackLive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .carouselSlideTrackOuter--horizontal .carouselSlideTrackViewport {
   touch-action: pan-y;
 }
@@ -58,6 +70,8 @@
 .carouselSlideTrackOuter--vertical .carouselSlideTrackStrip {
   flex-direction: column;
   width: 100%;
+  height: 100%;
+  gap: 5px;
 }
 
 .carouselSlideTrackSlide {
@@ -74,6 +88,7 @@
 .carouselSlideTrackOuter--vertical .carouselSlideTrackSlide {
   flex: 0 0 100%;
   width: 100%;
+  height: 100%;
   min-height: 0;
   padding: 0;
 }

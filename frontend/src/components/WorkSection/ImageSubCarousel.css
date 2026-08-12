@@ -29,8 +29,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  box-sizing: border-box;
   border-radius: 8px;
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 2px solid rgba(0, 229, 255, 0.2);
 }
 
 .imageSubCarouselEmpty {
@@ -40,7 +41,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text-muted, rgba(255, 255, 255, 0.5));
-  border: 1px dashed rgba(0, 229, 255, 0.3);
+  border: 2px dashed rgba(0, 229, 255, 0.3);
   border-radius: 4px;
 }
 

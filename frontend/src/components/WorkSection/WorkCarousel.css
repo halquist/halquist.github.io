@@ -33,34 +33,55 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin: -8px 0 12px;
   padding: 0 4px;
 }
 
 .workCarouselDot {
+  box-sizing: content-box;
   width: 8px;
   height: 8px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  min-width: 8px;
+  min-height: 8px;
+  padding: 12px;
+  border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   cursor: pointer;
+  position: relative;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.workCarouselDot:hover {
+.workCarouselDot::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.workCarouselDot:hover::before {
   border-color: rgba(0, 229, 255, 0.6);
   background: rgba(0, 229, 255, 0.25);
 }
 
-.workCarouselDot--active {
+.workCarouselDot--active::before {
   width: 10px;
   height: 10px;
   border-color: var(--color-accent, #00e5ff);
   background: var(--color-accent, #00e5ff);
   box-shadow: 0 0 6px rgba(0, 229, 255, 0.55);
+}
+
+.workCarouselDot:focus-visible {
+  outline: 2px solid var(--color-accent, #00e5ff);
+  outline-offset: 0;
 }
 
 .workCarouselBleed {

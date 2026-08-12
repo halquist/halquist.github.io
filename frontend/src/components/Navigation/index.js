@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Navigation.css';
 import LogoCrest from './LogoCrest';
 import * as Scroll from 'react-scroll';
@@ -18,6 +18,10 @@ function Navigation() {
   const [logoSpinKey, setLogoSpinKey] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
+  const menuButtonRef = useRef(null);
+  const menuRef = useRef(null);
+  const desktopNavRef = useRef(null);
+  const mobileNavRef = useRef(null);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -25,8 +29,12 @@ function Navigation() {
     const onScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY;
+      const activeEl = document.activeElement;
+      const focusInsideNav =
+        (desktopNavRef.current && desktopNavRef.current.contains(activeEl)) ||
+        (mobileNavRef.current && mobileNavRef.current.contains(activeEl));
 
-      if (currentScrollY <= TOP_REVEAL_Y) {
+      if (focusInsideNav || currentScrollY <= TOP_REVEAL_Y) {
         setNavHidden(false);
       } else if (scrollDelta > SCROLL_DELTA) {
         setNavHidden(true);
@@ -41,6 +49,20 @@ function Navigation() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!showMenu) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setShowMenu(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [showMenu]);
 
   const spinLogo = () => {
     setLogoSpinKey((prev) => prev + 1);
@@ -59,6 +81,7 @@ function Navigation() {
     <ScrollLink
       key={link.to}
       to={link.to}
+      href={`#${link.to}`}
       spy={true}
       smooth={true}
       duration={500}
@@ -74,7 +97,11 @@ function Navigation() {
 
   return (
     <>
-      <div className={`navBar${navHidden ? ' navBarHidden' : ''}`}>
+      <nav
+        className={`navBar${navHidden ? ' navBarHidden' : ''}`}
+        aria-label="Primary"
+        ref={desktopNavRef}
+      >
         <div className="navContent">
           {NAV_LINKS.slice(0, 2).map((link) => renderNavLink(link))}
           <div id="logoNameDiv">
@@ -82,13 +109,18 @@ function Navigation() {
           </div>
           {NAV_LINKS.slice(2).map((link) => renderNavLink(link))}
         </div>
-      </div>
+      </nav>
 
-      <div className={`navBarSmall${navHidden ? ' navBarHidden' : ''}`}>
+      <nav
+        className={`navBarSmall${navHidden ? ' navBarHidden' : ''}`}
+        aria-label="Mobile"
+        ref={mobileNavRef}
+      >
         <div className="navContentSmall">
           <button
             type="button"
             id="logoMenu"
+            ref={menuButtonRef}
             aria-expanded={showMenu}
             aria-controls="menuContents"
             aria-label={showMenu ? 'Close menu' : 'Open menu'}
@@ -97,7 +129,7 @@ function Navigation() {
             <LogoCrest key={logoSpinKey} />
           </button>
           {showMenu && (
-            <div id="menuContents">
+            <div id="menuContents" ref={menuRef}>
               {NAV_LINKS.map((link) =>
                 renderNavLink(
                   link,
@@ -107,7 +139,7 @@ function Navigation() {
             </div>
           )}
         </div>
-      </div>
+      </nav>
     </>
   );
 }
