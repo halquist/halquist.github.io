@@ -1,8 +1,10 @@
 # Jon Halquist Portfolio
 
-Personal portfolio site built with Create React App. The live site is at [halquist.github.io](https://halquist.github.io).
+Static React site at [halquist.github.io](https://halquist.github.io).
 
-## Development
+Single-page layout: hero, work carousels, about, skills, and a Prizma WebGL section.
+
+## Run locally
 
 ```bash
 cd frontend
@@ -10,35 +12,21 @@ npm install
 npm start
 ```
 
-Or from the repo root:
+From the repo root, `npm start` / `npm run build` / `npm run deploy` proxy to `frontend/`.
 
-```bash
-npm start
-```
-
-## Deploy to GitHub Pages
-
-The app deploys to the `gh-pages` branch. From the repo root:
+## Deploy
 
 ```bash
 npm run deploy
 ```
 
-Or from `frontend/`:
+Builds the app and pushes `frontend/build` to the `gh-pages` branch. Pushes to `main` also deploy via GitHub Actions.
 
-```bash
-npm run deploy
+## Layout
+
 ```
-
-This runs `npm run build`, then publishes `frontend/build/` to `gh-pages`.
-
-## Project layout
-
-| Path | Purpose |
-|------|---------|
-| `frontend/` | React app (source of truth for the live site) |
-| `backend/` | Legacy Express API (unused by the static site) |
-
-## CI
-
-Pushes to `main` trigger a GitHub Actions workflow that builds and deploys to GitHub Pages automatically.
+frontend/src/
+  components/   Navigation, work carousels, about/skills, Prizma
+  content/      Copy and project data (images loaded per work category)
+  images/       WebP assets by project folder
+```
